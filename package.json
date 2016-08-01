@@ -1,0 +1,21 @@
+{
+  "name": "teatime-test-utils",
+  "version": "0.1.0",
+  "description": "Teatime test utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio test/wdio.config.js"
+  },
+  "author": "Alexey Litvinov",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-register": "^6.11.6",
+    "css-modules-require-hook": "^4.0.1",
+    "express": "^4.14.0",
+    "glob": "^7.0.5",
+    "power-assert": "^1.4.1",
+    "wdio-mocha-framework": "^0.4.0",
+    "webdriverio": "^4.2.3"
+  }
+}
