@@ -1,14 +1,37 @@
 'use strict';
 
+const { mapValues } = require('lodash/fp');
 const assert = require('power-assert');
 
-module.exports = className;
+const mapClassNames = mapValues(classNameSelector);
+
+exports.className = className;
+exports.classNameSelector = classNameSelector;
+exports.loadSelectors = loadSelectors;
+exports.mapClassNames = mapClassNames;
 
 /**
- * @param  {string} className
+ * @param  {string} classNameSelector
  * @return {string}
  */
-function className(className) {
+function className(classNameSelector) {
+  assert(typeof classNameSelector === 'string');
+  return classNameSelector.replace('.', '');
+}
+
+/**
+ * @param  {string} classNames
+ * @return {string}
+ */
+function classNameSelector(classNames) {
   assert(typeof className === 'string');
   return '.' + className.split(' ').join('.');
+}
+
+/**
+ * @param  {string} modulepath
+ * @return {object}
+ */
+function loadSelectors(modulepath) {
+  return mapClassNames(require(modulepath));
 }
