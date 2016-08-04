@@ -1,20 +1,41 @@
 'use strict';
 
+const { compose, get } = require('lodash/fp');
+const { isEmpty, isObjectLike, isString } = require('lodash');
 const assert = require('power-assert');
 
-exports.getElementId = getElementId;
+const getWebElements = compose(webElementWasFound, browser.elements, get('selector'), hasSelector);
+const getWebElement = compose(isUniqueWebElement, getWebElements);
+
+exports.getWebElement = getWebElement;
+exports.getWebElements = getWebElements;
 
 /**
- * @param  {string} selector
- * @return {string}
+ * @param  {object} pageObject
+ * @param  {string} pageObject.selector
+ * @return {object}
  */
-function getElementId(selector) {
-  assert(typeof selector === 'string', '`getElementId` function expects string as an argument');
-  assert(selector, '`getElementId` function expects a non-empty selector as an argument');
+function hasSelector(pageObject) {
+  assert(isObjectLike(pageObject));
+  assert(isString(pageObject.selector));
+  assert(!isEmpty(pageObject.selector));
+  return pageObject;
+}
 
-  const elements = browser.elements(selector);
-  assert(elements.value.length > 0, 'element was not found');
-  assert(elements.value.length === 1, 'selector should result into unique element');
+/**
+ * @param  {webElementJSONObject} webElement
+ * @return {webElementJSONObject}
+ */
+function isUniqueWebElement(webElementJSONObject) {
+  assert(webElementJSONObject.value.length === 1, `selector wasn't unique enough`);
+  return webElementJSONObject;
+}
 
-  return elements.value[0].ELEMENT;
+/**
+ * @param  {webElementJSONObject} webElement
+ * @return {webElementJSONObject}
+ */
+function webElementWasFound(webElementJSONObject) {
+  assert(webElementJSONObject.value.length > 0);
+  return webElementJSONObject;
 }
