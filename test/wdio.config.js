@@ -4,7 +4,7 @@ const { resolve } = require('path');
 const glob = require('glob').sync;
 
 exports.config = {
-  specs: getSpecs('tool/*.js'),
+  specs: getSpecs('*/*.js'),
 
   maxInstances: 1,
 
