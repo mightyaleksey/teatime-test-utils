@@ -5,4 +5,9 @@ cssModulesRequireHook({
   generateScopedName: '[name]--[local]',
 });
 
-require('babel-register');
+const babelRegister = require('babel-register');
+babelRegister({
+  presets: [
+    'babel-preset-power-assert',
+  ],
+});
