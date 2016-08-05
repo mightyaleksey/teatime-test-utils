@@ -1,17 +1,27 @@
 'use strict';
 
-const { control, wrapper } = require('teatime-components/style/input/input.css');
+const { getContextSelector } = require('../tool/selector');
+const { loadSelectors } = require('../tool/className');
 const { getWebElement } = require('../tool/pageObject');
-const { isString } = require('lodash');
+const { identity, isString } = require('lodash');
 const assert = require('power-assert');
-const className = require('../tool/className');
+
+const { control, wrapper } = loadSelectors('teatime-components/style/input/input.css');
 
 module.exports = Input;
 
-function Input() {
+/**
+ * @param {string} [context]
+ */
+function Input(context = '') {
   if (!(this instanceof Input)) {
-    return new Input();
+    return new Input(context);
   }
+
+  Object.defineProperty(this, 'getSelector', {
+    enumerable: false,
+    value: getContextSelector(context),
+  });
 }
 
 Input.prototype = Object.create({
@@ -36,61 +46,51 @@ Input.prototype = Object.create({
     this.selector = className(wrapper);
     return getWebElement(this).getCssProperty(null, cssProperty);
   },
+
+  getSelector: identity,
 }, {
   elementSize: {
     get: function () {
-      this.selector = className(wrapper);
+      this.selector = this.getSelector(wrapper);
       return getWebElement(this).getElementSize();
     },
   },
 
   isDisabled: {
     get: function () {
-      this.selector = className(control);
-      return getWebElement(this).getAttribute(null, 'disabled');
+      this.selector = this.getSelector(wrapper, control);
+      return getWebElement(this).getAttribute(null, 'disabled') === 'true';
     },
   },
 
   html: {
     get: function () {
-      this.selector = className(control);
-      return getWebElement(this).getHtml();
+      this.selector = this.getSelector(wrapper, control);
+      return getWebElement(this).getHTML();
     },
   },
 
   name: {
     get: function () {
-      this.selector = className(control);
+      this.selector = this.getSelector(wrapper, control);
       return getWebElement(this).getAttribute(null, 'name');
-    },
-  },
-
-  tagName: {
-    get: function () {
-      this.selector = className(control);
-      return getWebElement(this).getTagName();
-    },
-  },
-
-  text: {
-    get: function () {
-      this.selector = className(wrapper);
-      return getWebElement(this).getText();
     },
   },
 
   value: {
     get: function () {
-      this.selector = className(control);
+      this.selector = this.getSelector(wrapper, control);
       return getWebElement(this).getValue();
     },
     set: function (value) {
       assert(isString(value));
 
-      this.selector = className(control);
+      this.selector = this.getSelector(wrapper, control);
       getWebElement(this).setValue(null, value);
 
       return this;
     },
   },
 });
+
+Input.prototype.constructor = Input;

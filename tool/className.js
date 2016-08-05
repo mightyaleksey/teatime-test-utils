@@ -24,8 +24,8 @@ function className(classNameSelector) {
  * @return {string}
  */
 function classNameSelector(classNames) {
-  assert(typeof className === 'string');
-  return '.' + className.split(' ').join('.');
+  assert(typeof classNames === 'string');
+  return '.' + classNames.split(' ').join('.');
 }
 
 /**
