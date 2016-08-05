@@ -17,8 +17,8 @@ describe('Input', () => {
     assert(typeof elementSize.height === 'number');
   });
 
-  it('assert for html prop', () => {
-    assert(Input(':last-child').html === '<input value=\"input\" class=\"input-xs--control input--control input-xs--hasClear input--hasClear\" placeholder=\"size xs\" name=\"inactive-input\" disabled=\"\" type=\"text\">');
+  it('assert for html content', () => {
+    assert(Input(':last-child').html === '<span class=\"input-xs--wrapper input--wrapper\"><input value=\"input\" class=\"input-xs--control input--control input-xs--hasClear input--hasClear\" placeholder=\"size xs\" name=\"inactive-input\" disabled=\"\" type=\"text\"></span>');
   });
 
   it('assert for name prop', () => {

@@ -6,10 +6,12 @@ const assert = require('power-assert');
 
 const getWebElements = compose(webElementWasFound, browser.elements, get('selector'), hasSelector);
 const getWebElement = compose(isUniqueWebElement, getWebElements);
+const getWebElementId = compose(get('value[0].ELEMENT'), getWebElement);
 
 exports.defineEnumerableProp = defineEnumerableProp;
 exports.getWebElement = getWebElement;
 exports.getWebElements = getWebElements;
+exports.getWebElementId = getWebElementId;
 
 /**
  * @param  {object} context

@@ -1,27 +1,45 @@
 'use strict';
 
-const { defineEnumerableProp, getWebElement } = require('../tool/pageObject');
+const { defineEnumerableProp, getWebElement, getWebElementId } = require('../tool/pageObject');
 const { getContextSelector } = require('../tool/selector');
 const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, wrapper } = loadSelectors('teatime-components/style/input/input.css');
+const { control, native, wrapper } = loadSelectors('teatime-components/style/check/check.css');
 
-module.exports = Input;
+module.exports = Check;
 
 /**
  * @param {string} [context]
  */
-function Input(context = '') {
-  if (!(this instanceof Input)) {
-    return new Input(context);
+function Check(context = '') {
+  if (!(this instanceof Check)) {
+    return new Check(context);
   }
 
   defineEnumerableProp(this, 'getSelector', getContextSelector(context));
 }
 
-Input.prototype = Object.create({
+Check.prototype = Object.create({
+  check: function () {
+    if (!this.isChecked) {
+      this.selector = this.getSelector(wrapper, control);
+      browser.elementIdClick(getWebElementId(this));
+    }
+
+    return this;
+  },
+
+  uncheck: function () {
+    if (this.isChecked) {
+      this.selector = this.getSelector(wrapper, control);
+      browser.elementIdClick(getWebElementId(this));
+    }
+
+    return this;
+  },
+
   /**
    * @param  {string} attributeName
    * @return {string}
@@ -53,9 +71,16 @@ Input.prototype = Object.create({
     },
   },
 
+  isChecked: {
+    get: function () {
+      this.selector = this.getSelector(wrapper, native);
+      return getWebElement(this).isSelected();
+    },
+  },
+
   isDisabled: {
     get: function () {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(wrapper, native);
       return !getWebElement(this).isEnabled();
     },
   },
@@ -69,25 +94,10 @@ Input.prototype = Object.create({
 
   name: {
     get: function () {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(wrapper, native);
       return getWebElement(this).getAttribute(null, 'name');
-    },
-  },
-
-  value: {
-    get: function () {
-      this.selector = this.getSelector(wrapper, control);
-      return getWebElement(this).getValue();
-    },
-    set: function (value) {
-      assert(isString(value));
-
-      this.selector = this.getSelector(wrapper, control);
-      getWebElement(this).setValue(null, value);
-
-      return this;
     },
   },
 });
 
-Input.prototype.constructor = Input;
+Check.prototype.constructor = Check;
