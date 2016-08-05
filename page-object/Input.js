@@ -1,8 +1,8 @@
 'use strict';
 
+const { defineEnumerableProp, getWebElement } = require('../tool/pageObject');
 const { getContextSelector } = require('../tool/selector');
 const { loadSelectors } = require('../tool/className');
-const { getWebElement } = require('../tool/pageObject');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
@@ -18,10 +18,7 @@ function Input(context = '') {
     return new Input(context);
   }
 
-  Object.defineProperty(this, 'getSelector', {
-    enumerable: false,
-    value: getContextSelector(context),
-  });
+  defineEnumerableProp(this, 'getSelector', getContextSelector(context));
 }
 
 Input.prototype = Object.create({

@@ -7,8 +7,28 @@ const assert = require('power-assert');
 const getWebElements = compose(webElementWasFound, browser.elements, get('selector'), hasSelector);
 const getWebElement = compose(isUniqueWebElement, getWebElements);
 
+exports.defineEnumerableProp = defineEnumerableProp;
 exports.getWebElement = getWebElement;
 exports.getWebElements = getWebElements;
+
+/**
+ * @param  {object} context
+ * @param  {string} propName
+ * @param  {*} propValue
+ * @return {object}
+ */
+function defineEnumerableProp(context, propName, propValue) {
+  assert(isObjectLike(context));
+  assert(isString(propName));
+  assert(propValue);
+
+  Object.defineProperty(context, propName, {
+    enumerable: false,
+    value: propValue,
+  });
+
+  return context;
+}
 
 /**
  * @param  {object} pageObject
