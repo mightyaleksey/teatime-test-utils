@@ -7,6 +7,8 @@ const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
 const {
+  control,
+  menu,
   native,
   wrapper,
 } = loadSelectors('teatime-components/style/select/select.css');
@@ -49,6 +51,15 @@ Select.prototype = Object.create({
   },
 
   getSelector: identity,
+
+  openMenu: function () {
+    this.selector = this.getSelector(wrapper, control);
+    browser.click(this.selector);
+    this.selector = this.getSelector(wrapper, menu);
+    browser.waitForVisible(this.selector);
+
+    return this;
+  },
 }, {
   elementSize: {
     get: function () {
@@ -83,7 +94,18 @@ Select.prototype = Object.create({
       this.selector = this.getSelector(wrapper, native);
       return getWebElement(this).getValue();
     },
-    set: function () {},
+    set: function (value) {
+      assert(isString(value));
+
+      this.openMenu();
+
+      this.selector = this.getSelector(wrapper, `[data-value="${value}"]`);
+      browser.click(this.selector);
+      this.selector = this.getSelector(wrapper, native);
+      browser.waitForValue(this.selector);
+
+      return this;
+    },
   },
 });
 

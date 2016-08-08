@@ -31,6 +31,10 @@ describe('Select', () => {
   it('assert for the value prop', () => {
     const select = Select(':nth-child(1)');
 
-    assert(select.value === 'abakan');
+    select.value = 'magadan';
+    assert(select.value === 'magadan');
+
+    select.value = 'chistopol';
+    assert(select.value === 'chistopol');
   });
 });
