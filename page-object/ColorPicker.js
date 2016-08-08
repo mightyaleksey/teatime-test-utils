@@ -6,40 +6,19 @@ const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, label, native, wrapper } = loadSelectors('teatime-components/style/check/check.css');
+const { container, control } = loadSelectors('teatime-components/style/color-picker/color-picker.css');
 
-module.exports = Check;
+module.exports = ColorPicker;
 
-/**
- * @param {string} [context]
- */
-function Check(context = '') {
-  if (!(this instanceof Check)) {
-    return new Check(context);
+function ColorPicker(context = '') {
+  if (!(this instanceof ColorPicker)) {
+    return new ColorPicker(context);
   }
 
   defineEnumerableProp(this, 'getSelector', getContextSelector(context));
 }
 
-Check.prototype = Object.create({
-  check: function () {
-    if (!this.isChecked) {
-      this.selector = this.getSelector(wrapper, control);
-      browser.elementIdClick(getWebElementId(this));
-    }
-
-    return this;
-  },
-
-  uncheck: function () {
-    if (this.isChecked) {
-      this.selector = this.getSelector(wrapper, control);
-      browser.elementIdClick(getWebElementId(this));
-    }
-
-    return this;
-  },
-
+ColorPicker.prototype = Object.create({
   /**
    * @param  {string} attributeName
    * @return {string}
@@ -47,7 +26,7 @@ Check.prototype = Object.create({
   getAttribute: function (attributeName) {
     assert(isString(attributeName));
 
-    this.selector = this.getSelector(wrapper);
+    this.selector = this.getSelector(container);
     return getWebElement(this).getAttribute(null, attributeName);
   },
 
@@ -58,7 +37,7 @@ Check.prototype = Object.create({
   getCssProperty: function (cssProperty) {
     assert(isString(cssProperty));
 
-    this.selector = this.getSelector(wrapper);
+    this.selector = this.getSelector(container);
     return getWebElement(this).getCssProperty(null, cssProperty);
   },
 
@@ -66,45 +45,46 @@ Check.prototype = Object.create({
 }, {
   elementSize: {
     get: function () {
-      this.selector = this.getSelector(wrapper);
+      this.selector = this.getSelector(container);
       return getWebElement(this).getElementSize();
-    },
-  },
-
-  isChecked: {
-    get: function () {
-      this.selector = this.getSelector(wrapper, native);
-      return getWebElement(this).isSelected();
     },
   },
 
   isDisabled: {
     get: function () {
-      this.selector = this.getSelector(wrapper, native);
+      this.selector = this.getSelector(container, control);
       return !getWebElement(this).isEnabled();
     },
   },
 
   html: {
     get: function () {
-      this.selector = this.getSelector(wrapper);
+      this.selector = this.getSelector(container);
       return getWebElement(this).getHTML();
     },
   },
 
   name: {
     get: function () {
-      this.selector = this.getSelector(wrapper, native);
+      this.selector = this.getSelector(container, control);
       return getWebElement(this).getAttribute(null, 'name');
     },
   },
 
-  text: {
+  value: {
     get: function () {
-      this.selector = this.getSelector(wrapper, label);
-      return getWebElement(this).getText();
+      this.selector = this.getSelector(container, control);
+      return getWebElement(this).getValue();
+    },
+    set: function (value) {
+      assert(isString(value));
+
+      this.selector = this.getSelector(container, control);
+      getWebElement(this).setValue(null, value);
+
+      return this;
     },
   },
 });
 
-Check.prototype.constructor = Check;
+ColorPicker.prototype.constructor = ColorPicker;

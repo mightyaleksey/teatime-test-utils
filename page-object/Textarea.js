@@ -6,22 +6,22 @@ const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, wrapper } = loadSelectors('teatime-components/style/input/input.css');
+const { control } = loadSelectors('teatime-components/style/textarea/textarea.css');
 
-module.exports = Input;
+module.exports = Textarea;
 
 /**
  * @param {string} [context]
  */
-function Input(context = '') {
-  if (!(this instanceof Input)) {
-    return new Input(context);
+function Textarea(context = '') {
+  if (!(this instanceof Textarea)) {
+    return new Textarea(context);
   }
 
   defineEnumerableProp(this, 'getSelector', getContextSelector(context));
 }
 
-Input.prototype = Object.create({
+Textarea.prototype = Object.create({
   /**
    * @param  {string} attributeName
    * @return {string}
@@ -29,7 +29,7 @@ Input.prototype = Object.create({
   getAttribute: function (attributeName) {
     assert(isString(attributeName));
 
-    this.selector = this.getSelector(wrapper);
+    this.selector = this.getSelector(control);
     return getWebElement(this).getAttribute(null, attributeName);
   },
 
@@ -40,7 +40,7 @@ Input.prototype = Object.create({
   getCssProperty: function (cssProperty) {
     assert(isString(cssProperty));
 
-    this.selector = this.getSelector(wrapper);
+    this.selector = this.getSelector(control);
     return getWebElement(this).getCssProperty(null, cssProperty);
   },
 
@@ -48,41 +48,41 @@ Input.prototype = Object.create({
 }, {
   elementSize: {
     get: function () {
-      this.selector = this.getSelector(wrapper);
+      this.selector = this.getSelector(control);
       return getWebElement(this).getElementSize();
     },
   },
 
   isDisabled: {
     get: function () {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(control);
       return !getWebElement(this).isEnabled();
     },
   },
 
   html: {
     get: function () {
-      this.selector = this.getSelector(wrapper);
+      this.selector = this.getSelector(control);
       return getWebElement(this).getHTML();
     },
   },
 
   name: {
     get: function () {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(control);
       return getWebElement(this).getAttribute(null, 'name');
     },
   },
 
   value: {
     get: function () {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(control);
       return getWebElement(this).getValue();
     },
     set: function (value) {
       assert(isString(value));
 
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(control);
       getWebElement(this).setValue(null, value);
 
       return this;
@@ -90,4 +90,4 @@ Input.prototype = Object.create({
   },
 });
 
-Input.prototype.constructor = Input;
+Textarea.prototype.constructor = Textarea;

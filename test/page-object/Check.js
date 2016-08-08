@@ -19,7 +19,7 @@ describe('Check', () => {
     assert(Check(':nth-child(1)').isChecked === false);
     assert(Check(':nth-child(2)').isChecked === false);
     assert(Check(':nth-child(3)').isChecked === true);
-  })
+  });
 
   it('assert for the disabled prop', () => {
     assert(Check(':nth-child(1)').isDisabled === false);

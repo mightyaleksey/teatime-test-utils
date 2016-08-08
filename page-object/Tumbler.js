@@ -6,34 +6,40 @@ const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, label, native, wrapper } = loadSelectors('teatime-components/style/check/check.css');
+const { control, native, wrapper } = loadSelectors('teatime-components/style/tumbler/tumbler.css');
 
-module.exports = Check;
+module.exports = Tumbler;
 
 /**
  * @param {string} [context]
  */
-function Check(context = '') {
-  if (!(this instanceof Check)) {
-    return new Check(context);
+function Tumbler(context = '') {
+  if (!(this instanceof Tumbler)) {
+    return new Tumbler(context);
   }
 
   defineEnumerableProp(this, 'getSelector', getContextSelector(context));
 }
 
-Check.prototype = Object.create({
+Tumbler.prototype = Object.create({
+  /**
+   * @return {tumber}
+   */
   check: function () {
     if (!this.isChecked) {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(wrapper);
       browser.elementIdClick(getWebElementId(this));
     }
 
     return this;
   },
 
+  /**
+   * @return {tumber}
+   */
   uncheck: function () {
     if (this.isChecked) {
-      this.selector = this.getSelector(wrapper, control);
+      this.selector = this.getSelector(wrapper);
       browser.elementIdClick(getWebElementId(this));
     }
 
@@ -98,13 +104,6 @@ Check.prototype = Object.create({
       return getWebElement(this).getAttribute(null, 'name');
     },
   },
-
-  text: {
-    get: function () {
-      this.selector = this.getSelector(wrapper, label);
-      return getWebElement(this).getText();
-    },
-  },
 });
 
-Check.prototype.constructor = Check;
+Tumbler.prototype.constructor = Tumbler;
