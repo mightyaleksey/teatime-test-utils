@@ -37,4 +37,14 @@ describe('Select', () => {
     select.value = 'chistopol';
     assert(select.value === 'chistopol');
   });
+
+  it('assert for the searchable value prop', () => {
+    const select = Select(':nth-child(3)');
+
+    select.value = 'magadan';
+    assert(select.value === 'magadan');
+
+    select.value = 'chistopol';
+    assert(select.value === 'chistopol');
+  });
 });
