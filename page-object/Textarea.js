@@ -25,28 +25,6 @@ function Textarea(context = '') {
 }
 
 Textarea.prototype = Object.create({
-  /**
-   * @param  {string} attributeName
-   * @return {string}
-   */
-  getAttribute: function (attributeName) {
-    assert(isString(attributeName));
-
-    this.selector = this.getSelector(control);
-    return getWebElement(this).getAttribute(null, attributeName);
-  },
-
-  /**
-   * @param  {string} cssProperty
-   * @return {string}
-   */
-  getCssProperty: function (cssProperty) {
-    assert(isString(cssProperty));
-
-    this.selector = this.getSelector(control);
-    return getWebElement(this).getCssProperty(null, cssProperty);
-  },
-
   getSelector: identity,
 }, {
   elementSize: {
