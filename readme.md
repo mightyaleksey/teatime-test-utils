@@ -1,7 +1,7 @@
 teatime-test-utils
 ==================
 
-Under development.
+Collection of implemented Page Objects for the [teatime-components](https://github.com/sullenor/teatime-components). Designed to be used in automatic tests with [WebDriver.io](http://webdriver.io/). Under development.
 
 
 ## Setup
@@ -26,8 +26,9 @@ exports.config = {
 - Also note, that preset uses [babel-register](https://babeljs.io/docs/usage/require/) to attach [power-assert](https://github.com/power-assert-js/power-assert#using-babel-preset-power-assert-or-babel-plugin-espower). In case you have a local `.babelrc`, it will overwrite all the options from the preset file. In that case you should manually add [babel-preset-power-assert](https://github.com/power-assert-js/babel-preset-power-assert#via-babelrc-recommended) to your `.babelrc`.
 
 
-## Reference Guides
+## Useful links
 
+- https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors
 - https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol
 
 
