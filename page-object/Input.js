@@ -6,12 +6,16 @@ const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, wrapper } = loadSelectors('teatime-components/style/input/input.css');
+const {
+  control,
+  wrapper,
+} = loadSelectors('teatime-components/style/input/input.css');
 
 module.exports = Input;
 
 /**
- * @param {string} [context]
+ * @param  {string} [context]
+ * @return {input}
  */
 function Input(context = '') {
   if (!(this instanceof Input)) {
@@ -34,7 +38,7 @@ Input.prototype = Object.create({
   },
 
   /**
-   * @param  {string} attributeName
+   * @param  {string} cssProperty
    * @return {string}
    */
   getCssProperty: function (cssProperty) {

@@ -6,12 +6,15 @@ const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control } = loadSelectors('teatime-components/style/textarea/textarea.css');
+const {
+  control,
+} = loadSelectors('teatime-components/style/textarea/textarea.css');
 
 module.exports = Textarea;
 
 /**
- * @param {string} [context]
+ * @param  {string} [context]
+ * @return {textarea}
  */
 function Textarea(context = '') {
   if (!(this instanceof Textarea)) {
@@ -34,7 +37,7 @@ Textarea.prototype = Object.create({
   },
 
   /**
-   * @param  {string} attributeName
+   * @param  {string} cssProperty
    * @return {string}
    */
   getCssProperty: function (cssProperty) {

@@ -1,17 +1,23 @@
 'use strict';
 
-const { defineEnumerableProp, getWebElement, getWebElementId } = require('../tool/pageObject');
+const { defineEnumerableProp, getWebElement } = require('../tool/pageObject');
 const { getContextSelector } = require('../tool/selector');
 const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, label, native, wrapper } = loadSelectors('teatime-components/style/check/check.css');
+const {
+  control,
+  label,
+  native,
+  wrapper,
+} = loadSelectors('teatime-components/style/check/check.css');
 
 module.exports = Check;
 
 /**
- * @param {string} [context]
+ * @param  {string} [context]
+ * @return {check}
  */
 function Check(context = '') {
   if (!(this instanceof Check)) {
@@ -25,7 +31,7 @@ Check.prototype = Object.create({
   check: function () {
     if (!this.isChecked) {
       this.selector = this.getSelector(wrapper, control);
-      browser.elementIdClick(getWebElementId(this));
+      browser.click(this.selector);
     }
 
     return this;
@@ -34,7 +40,7 @@ Check.prototype = Object.create({
   uncheck: function () {
     if (this.isChecked) {
       this.selector = this.getSelector(wrapper, control);
-      browser.elementIdClick(getWebElementId(this));
+      browser.click(this.selector);
     }
 
     return this;
@@ -52,7 +58,7 @@ Check.prototype = Object.create({
   },
 
   /**
-   * @param  {string} attributeName
+   * @param  {string} cssProperty
    * @return {string}
    */
   getCssProperty: function (cssProperty) {

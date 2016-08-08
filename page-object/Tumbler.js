@@ -1,17 +1,21 @@
 'use strict';
 
-const { defineEnumerableProp, getWebElement, getWebElementId } = require('../tool/pageObject');
+const { defineEnumerableProp, getWebElement } = require('../tool/pageObject');
 const { getContextSelector } = require('../tool/selector');
 const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { control, native, wrapper } = loadSelectors('teatime-components/style/tumbler/tumbler.css');
+const {
+  native,
+  wrapper,
+} = loadSelectors('teatime-components/style/tumbler/tumbler.css');
 
 module.exports = Tumbler;
 
 /**
- * @param {string} [context]
+ * @param  {string} [context]
+ * @return {tumbler}
  */
 function Tumbler(context = '') {
   if (!(this instanceof Tumbler)) {
@@ -28,7 +32,7 @@ Tumbler.prototype = Object.create({
   check: function () {
     if (!this.isChecked) {
       this.selector = this.getSelector(wrapper);
-      browser.elementIdClick(getWebElementId(this));
+      browser.click(this.selector);
     }
 
     return this;
@@ -40,7 +44,7 @@ Tumbler.prototype = Object.create({
   uncheck: function () {
     if (this.isChecked) {
       this.selector = this.getSelector(wrapper);
-      browser.elementIdClick(getWebElementId(this));
+      browser.click(this.selector);
     }
 
     return this;
@@ -58,7 +62,7 @@ Tumbler.prototype = Object.create({
   },
 
   /**
-   * @param  {string} attributeName
+   * @param  {string} cssProperty
    * @return {string}
    */
   getCssProperty: function (cssProperty) {

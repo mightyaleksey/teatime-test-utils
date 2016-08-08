@@ -1,12 +1,15 @@
 'use strict';
 
-const { defineEnumerableProp, getWebElement, getWebElementId } = require('../tool/pageObject');
+const { defineEnumerableProp, getWebElement } = require('../tool/pageObject');
 const { getContextSelector } = require('../tool/selector');
 const { loadSelectors } = require('../tool/className');
 const { identity, isString } = require('lodash');
 const assert = require('power-assert');
 
-const { container, control } = loadSelectors('teatime-components/style/color-picker/color-picker.css');
+const {
+  container,
+  control,
+} = loadSelectors('teatime-components/style/color-picker/color-picker.css');
 
 module.exports = ColorPicker;
 
@@ -31,7 +34,7 @@ ColorPicker.prototype = Object.create({
   },
 
   /**
-   * @param  {string} attributeName
+   * @param  {string} cssProperty
    * @return {string}
    */
   getCssProperty: function (cssProperty) {
