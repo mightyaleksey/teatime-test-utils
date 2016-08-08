@@ -30,9 +30,11 @@ Tumbler.prototype = Object.create({
    * @return {tumber}
    */
   check: function () {
-    if (!this.isChecked) {
+    if (!this.isChecked && !this.isDisabled) {
       this.selector = this.getSelector(wrapper);
       browser.click(this.selector);
+      this.selector = this.getSelector(wrapper, native);
+      browser.waitForSelected(this.selector, null, false);
     }
 
     return this;
@@ -42,9 +44,11 @@ Tumbler.prototype = Object.create({
    * @return {tumber}
    */
   uncheck: function () {
-    if (this.isChecked) {
+    if (this.isChecked && !this.isDisabled) {
       this.selector = this.getSelector(wrapper);
       browser.click(this.selector);
+      this.selector = this.getSelector(wrapper, native);
+      browser.waitForSelected(this.selector, null, true);
     }
 
     return this;

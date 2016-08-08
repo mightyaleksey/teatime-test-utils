@@ -29,18 +29,22 @@ function Check(context = '') {
 
 Check.prototype = Object.create({
   check: function () {
-    if (!this.isChecked) {
+    if (!this.isChecked && !this.isDisabled) {
       this.selector = this.getSelector(wrapper, control);
       browser.click(this.selector);
+      this.selector = this.getSelector(wrapper, native);
+      browser.waitForSelected(this.selector, null, false);
     }
 
     return this;
   },
 
   uncheck: function () {
-    if (this.isChecked) {
+    if (this.isChecked && !this.isDisabled) {
       this.selector = this.getSelector(wrapper, control);
       browser.click(this.selector);
+      this.selector = this.getSelector(wrapper, native);
+      browser.waitForSelected(this.selector, null, true);
     }
 
     return this;
