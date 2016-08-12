@@ -30,6 +30,7 @@ exports.config = {
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors
 - https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol
+- https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
 
 
 ## License
