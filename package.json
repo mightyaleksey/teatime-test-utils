@@ -20,6 +20,7 @@
     "babel-register": "^6.11.6",
     "static-server": "^2.0.3",
     "teatime-components": "^0.6.6",
+    "wdio-spec-reporter": "0.0.3",
     "webdriverio": "^4.2.3"
   },
   "dependencies": {

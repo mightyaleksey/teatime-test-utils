@@ -5,7 +5,7 @@ exports.config = {
     'test-wdio/*/*.js',
   ],
 
-  maxInstances: 1,
+  maxInstances: 2,
 
   capabilities: [{
     browserName: 'firefox',
@@ -19,7 +19,9 @@ exports.config = {
 
   framework: 'mocha',
 
-  // reporters
+  reporters: [
+    'spec',
+  ],
 
   mochaOpts: {
     ui: 'bdd',
