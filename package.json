@@ -7,11 +7,10 @@
     "node": ">=6.3"
   },
   "scripts": {
-    "start:selenium": "selenium-server -p 4444",
-    "start:server": "node test/server",
-    "test": "npm run test:wdio",
-    "test:unit": "ava --require ./preset test/*/*.js",
-    "test:wdio": "wdio test/wdio.config.js"
+    "docker:build": "docker build -t $npm_package_name:$npm_package_version env",
+    "docker:run": "docker run --tty --interactive --volume $(pwd):/var/www/test $npm_package_name:$npm_package_version",
+    "test": "npm run test:unit",
+    "test:unit": "ava --require ./preset test/*/*.js"
   },
   "author": "Alexey Litvinov",
   "license": "MIT",
@@ -19,12 +18,12 @@
     "ava": "^0.16.0",
     "babel-preset-power-assert": "^1.0.0",
     "babel-register": "^6.11.6",
+    "static-server": "^2.0.3",
     "teatime-components": "^0.6.6",
     "webdriverio": "^4.2.3"
   },
   "dependencies": {
     "css-modules-require-hook": "^4.0.1",
-    "css-selector-tokenizer": "^0.6.0",
     "lodash": "^4.14.1",
     "power-assert": "^1.4.1"
   }
