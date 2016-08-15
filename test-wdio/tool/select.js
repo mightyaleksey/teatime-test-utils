@@ -7,7 +7,7 @@ const assert = require('power-assert');
 before(() => browser.url('/select.html'));
 
 describe('Select', () => {
-  it('setValue', () => {
+  it('setValue()', () => {
     browser.click(`[name="cities"] + ${Select.control}`);
     browser.waitForVisible(`[name="cities"] ~ ${Select.menu}`);
 
@@ -16,7 +16,7 @@ describe('Select', () => {
     assert(browser.getValue('[name="cities"]'), 'barnaul');
   });
 
-  it('setValue #searchable', () => {
+  it('setValue() #searchable', () => {
     browser.click(`[name="searchable-cities"] + ${Select.control}`);
     browser.waitForVisible(`[name="searchable-cities"] ~ ${Select.menu}`);
 

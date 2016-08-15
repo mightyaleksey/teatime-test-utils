@@ -10,7 +10,7 @@ const getSelectedIndex = compose(findIndex(identity), browser.isSelected);
 before(() => browser.url('/radio.html'));
 
 describe('Radio', () => {
-  it('setValue', () => {
+  it('setValue()', () => {
     browser.click('[name="motorrad-1"][value="kawasaki"] + label');
     browser.waitForSelected('[name="motorrad-1"][value="kawasaki"]');
 
