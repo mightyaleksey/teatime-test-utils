@@ -21,7 +21,12 @@
     ],
     "max-len": [
       "error",
-      80
+      80,
+      2,
+      {
+        "ignorePattern": "'.{40,}?[^\\\\]'",
+        "ignoreUrls": true
+      }
     ],
     "no-multiple-empty-lines": [
       "error",
