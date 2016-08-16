@@ -1,15 +1,25 @@
 'use strict';
 
-const { compose, join, map, mapValues, split } = require('lodash/fp');
+const {
+  compose,
+  join,
+  map,
+  mapValues,
+  replace,
+  split,
+  trim,
+} = require('lodash/fp');
 const { dirname, resolve } = require('path');
 
-const transformSelector = compose(join(''), map(classSelector), split(' '));
-const loadSelectors = compose(mapValues(transformSelector), require, abspath);
+const transformFromSelector = compose(trim, replace(/\./g, ' '));
+const transformToSelector = compose(join(''), map(classSelector), split(' '));
+const loadSelectors = compose(mapValues(transformToSelector), require, abspath);
 
 exports.abspath = abspath;
 exports.classSelector = classSelector;
 exports.loadSelectors = loadSelectors;
-exports.transformSelector = transformSelector;
+exports.transformFromSelector = transformFromSelector;
+exports.transformToSelector = transformToSelector;
 
 /**
  * @param  {string} filepath

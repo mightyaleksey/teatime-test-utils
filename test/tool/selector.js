@@ -1,11 +1,21 @@
 'use strict';
 
-const { loadSelectors, transformSelector } = require('../../tool/selector');
+const {
+  loadSelectors,
+  transformFromSelector,
+  transformToSelector,
+} = require('../../tool/selector');
 const test = require('ava');
 
-test('transformSelector()', t => {
-  t.is(transformSelector('input'), '.input');
-  t.is(transformSelector('input mixin'), '.input.mixin');
+test('transformFromSelector()', t => {
+  t.is(transformFromSelector(''), '');
+  t.is(transformFromSelector('.a'), 'a');
+  t.is(transformFromSelector('.a.b.c'), 'a b c');
+});
+
+test('transformToSelector()', t => {
+  t.is(transformToSelector('input'), '.input');
+  t.is(transformToSelector('input mixin'), '.input.mixin');
 });
 
 test('loadSelectors()', t => {

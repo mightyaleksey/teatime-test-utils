@@ -2,6 +2,8 @@
 
 const { compose, findIndex, identity } = require('lodash/fp');
 const { loadSelectors } = require('../../tool/selector');
+const { getRadioGroupValue } = require('../../tool/getValue');
+const { setRadioGroupValue } = require('../../tool/setValue');
 const RadioGroup = loadSelectors('teatime-components/style/radio-group/radio-group.css');
 const assert = require('power-assert');
 
@@ -20,5 +22,11 @@ describe('RadioGroup', () => {
     const selector = RadioGroup.wrapper +
       `:nth-of-type(${index}) [name="radio-group-motorrad-1"]`;
     assert(browser.getAttribute(selector, 'value') === 'kawasaki');
+  });
+
+  it('getRadioGroupValue() / setRadioGroupValue()', () => {
+    assert(getRadioGroupValue('[name="radio-group-motorrad-1"]') === 'kawasaki');
+    setRadioGroupValue('[name="radio-group-motorrad-1"]', 'vespa');
+    assert(getRadioGroupValue('[name="radio-group-motorrad-1"]') === 'vespa');
   });
 });
