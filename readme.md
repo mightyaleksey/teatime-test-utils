@@ -30,6 +30,9 @@ exports.config = {
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors
 - https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol
+- https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+- https://medium.com/@griggheo/running-selenium-webdriver-tests-using-firefox-headless-mode-on-ubuntu-d32500bb6af2#.52djxp6rs
+- https://medium.com/@griggheo/setting-up-jenkins-to-run-headless-selenium-tests-in-docker-containers-99528390bce7#.ae9nyy30m
 
 
 ## License

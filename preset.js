@@ -3,7 +3,7 @@
 const { sep } = require('path');
 
 const isNodeModule = new RegExp(`${sep}node_modules${sep}`);
-const isTestUtil = new RegExp(`teatime-test-utils${sep}(page-object|tool)`);
+const isTestUtil = new RegExp(`teatime-test-utils${sep}tool`);
 
 const cssModulesRequireHook = require('css-modules-require-hook');
 cssModulesRequireHook({

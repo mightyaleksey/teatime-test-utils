@@ -1,33 +1,31 @@
 {
   "name": "teatime-test-utils",
-  "version": "0.6.8",
+  "version": "0.7.0",
   "description": "Teatime test utils",
   "main": "preset.js",
   "engines": {
     "node": ">=6.3"
   },
   "scripts": {
-    "start:selenium": "selenium-server -p 4444",
-    "start:server": "node test/server",
-    "test": "npm run test:wdio",
-    "test:unit": "mocha --require babel-register test/tool/selector",
-    "test:wdio": "wdio test/wdio.config.js"
+    "docker:build": "docker build -t $npm_package_name:$npm_package_version env",
+    "docker:run": "docker run --interactive --rm --tty --volume $(pwd):/var/www/test $npm_package_name:$npm_package_version",
+    "lint": "eslint {pageObject,test*,tool}/**/*.js *.js",
+    "test": "npm run test:unit",
+    "test:unit": "ava --require ./preset test/*/*.js"
   },
   "author": "Alexey Litvinov",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-power-assert": "^1.0.0",
-    "babel-register": "^6.11.6",
-    "express": "^4.14.0",
-    "glob": "^7.0.5",
-    "mocha": "^3.0.1",
+    "ava": "^0.16.0",
+    "static-server": "^2.0.3",
     "teatime-components": "^0.6.6",
-    "wdio-mocha-framework": "^0.4.0",
+    "wdio-spec-reporter": "0.0.3",
     "webdriverio": "^4.2.3"
   },
   "dependencies": {
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-register": "^6.11.6",
     "css-modules-require-hook": "^4.0.1",
-    "css-selector-tokenizer": "^0.6.0",
     "lodash": "^4.14.1",
     "power-assert": "^1.4.1"
   }
