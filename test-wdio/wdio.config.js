@@ -14,6 +14,8 @@ exports.config = {
   sync: true,
 
   logLevel: 'silent',
+  screenshotPath: 'test-wdio-error-shots',
+  screenshotOnReject: true,
 
   baseUrl: 'http://localhost:8080/test-wdio/fixture',
 
