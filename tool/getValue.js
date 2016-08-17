@@ -1,6 +1,7 @@
 'use strict';
 
 const { compose, findIndex, identity, isString } = require('lodash/fp');
+const { identifyElement } = require('./identify');
 const Radio = require('../pageObject/Radio');
 const RadioGroup = require('../pageObject/RadioGroup');
 const assert = require('power-assert');
@@ -14,8 +15,33 @@ exports.getRadioValue = getRadioValue;
 exports.getRadioGroupValue = getRadioGroupValue;
 exports.getSelectValue = getInputValue;
 exports.getTumblerValue = getCheckValue;
+exports.getValue = getValue;
 
 /* global browser */
+
+/**
+ * @param  {string} selector
+ * @return {boolean|string}
+ */
+function getValue(selector) {
+  assert(isString(selector));
+
+  switch (identifyElement(selector)) {
+  case 'Check':
+  case 'Tumbler':
+    return getCheckValue(selector);
+  case 'Input':
+  case 'Select':
+    return getInputValue(selector);
+  case 'Radio':
+    return getRadioValue(selector);
+  case 'RadioGroup':
+    return getRadioGroupValue(selector);
+  }
+
+  const er = new Error(`Unsupported control type \`${selector}\``);
+  throw er;
+}
 
 /**
  * @param {string} selector
@@ -37,12 +63,15 @@ function getInputValue(selector) {
 
 /**
  * @param {string} selector
- * @return {string}
+ * @return {string|null}
  */
 function getRadioValue(selector) {
   assert(isString(selector));
   const selectedIndex = getSelectedIndex(selector);
-  assert(selectedIndex > -1);
+
+  if (selectedIndex === -1) {
+    return null;
+  }
 
   return browser.getAttribute(
     `${Radio.wrapper}:nth-of-type(${selectedIndex}) ${selector}`,
@@ -52,12 +81,15 @@ function getRadioValue(selector) {
 
 /**
  * @param {string} selector
- * @return {string}
+ * @return {string|null}
  */
 function getRadioGroupValue(selector) {
   assert(isString(selector));
   const selectedIndex = getSelectedIndex(selector);
-  assert(selectedIndex > -1);
+
+  if (selectedIndex === -1) {
+    return null;
+  }
 
   return browser.getAttribute(
     `${RadioGroup.wrapper}:nth-of-type(${selectedIndex}) ${selector}`,

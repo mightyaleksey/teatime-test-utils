@@ -1,7 +1,7 @@
 'use strict';
 
-const { getInputValue } = require('../../tool/getValue');
-const { setInputValue } = require('../../tool/setValue');
+const { getInputValue, getValue } = require('../../tool/getValue');
+const { setInputValue, setValue } = require('../../tool/setValue');
 const assert = require('power-assert');
 
 before(() => browser.url('/input.html'));
@@ -16,5 +16,11 @@ describe('Input', () => {
     assert(getInputValue('[name="active-input"]') === 'сизый карась');
     setInputValue('[name="active-input"]', 'карамба!');
     assert(getInputValue('[name="active-input"]') === 'карамба!');
+  });
+
+  it('getValue() / setValue()', () => {
+    assert(getValue('[name="active-input"]') === 'карамба!');
+    setValue('[name="active-input"]', 'синеватый');
+    assert(getValue('[name="active-input"]') === 'синеватый');
   });
 });

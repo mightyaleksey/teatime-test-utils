@@ -1,7 +1,7 @@
 'use strict';
 
-const { getTumblerValue } = require('../../tool/getValue');
-const { setTumblerValue } = require('../../tool/setValue');
+const { getTumblerValue, getValue } = require('../../tool/getValue');
+const { setTumblerValue, setValue } = require('../../tool/setValue');
 const assert = require('power-assert');
 
 before(() => browser.url('/tumbler.html'));
@@ -18,5 +18,11 @@ describe('Tumbler', () => {
     assert(getTumblerValue('[name="show-images"]') === false);
     setTumblerValue('[name="show-images"]', true);
     assert(getTumblerValue('[name="show-images"]') === true);
+  });
+
+  it('getValue() / setValue()', () => {
+    assert(getValue('[name="show-images"]') === true);
+    setValue('[name="show-images"]', false);
+    assert(getValue('[name="show-images"]') === false);
   });
 });

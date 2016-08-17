@@ -1,7 +1,7 @@
 'use strict';
 
-const { getCheckValue } = require('../../tool/getValue');
-const { setCheckValue } = require('../../tool/setValue');
+const { getCheckValue, getValue } = require('../../tool/getValue');
+const { setCheckValue, setValue } = require('../../tool/setValue');
 const assert = require('power-assert');
 
 before(() => browser.url('/check.html'));
@@ -18,5 +18,11 @@ describe('Check', () => {
     assert(getCheckValue('[name="inactive-single"]') === true);
     setCheckValue('[name="inactive-single"]', false);
     assert(getCheckValue('[name="inactive-single"]') === false);
+  });
+
+  it('getValue() / setValue()', () => {
+    assert(getValue('[name="inactive-single"]') === false);
+    setValue('[name="inactive-single"]', true);
+    assert(getValue('[name="inactive-single"]') === true);
   });
 });

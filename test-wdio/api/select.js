@@ -1,8 +1,8 @@
 'use strict';
 
 const { loadSelectors } = require('../../tool/selector');
-const { getSelectValue } = require('../../tool/getValue');
-const { setSelectValue } = require('../../tool/setValue');
+const { getSelectValue, getValue } = require('../../tool/getValue');
+const { setSelectValue, setValue } = require('../../tool/setValue');
 const Select = loadSelectors('teatime-components/style/select/select.css');
 const assert = require('power-assert');
 
@@ -38,5 +38,17 @@ describe('Select', () => {
     assert(getSelectValue('[name="searchable-cities"]') === 'perm');
     setSelectValue('[name="searchable-cities"]', 'nyagan');
     assert(getSelectValue('[name="searchable-cities"]') === 'nyagan');
+  });
+
+  it('getValue() / setValue()', () => {
+    assert(getValue('[name="cities"]') === 'yeysk');
+    setValue('[name="cities"]', 'rybinsk');
+    assert(getValue('[name="cities"]') === 'rybinsk');
+  });
+
+  it('getValue() / setValue() #searchable', () => {
+    assert(getValue('[name="searchable-cities"]') === 'nyagan');
+    setValue('[name="searchable-cities"]', 'sibay');
+    assert(getValue('[name="searchable-cities"]') === 'sibay');
   });
 });
