@@ -1,6 +1,6 @@
 'use strict';
 
-const { Select, Tumbler } = require('../pageObject');
+const { Select } = require('../pageObject');
 const { isBoolean, isString } = require('lodash/fp');
 const { identifyElement } = require('./identify');
 const assert = require('power-assert');
