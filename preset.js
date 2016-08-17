@@ -7,7 +7,9 @@ const isTestUtil = new RegExp(`teatime-test-utils${sep}tool`);
 
 const cssModulesRequireHook = require('css-modules-require-hook');
 cssModulesRequireHook({
-  generateScopedName: '[name]--[local]',
+  generateScopedName: typeof process.env.GENERATE_SCOPED_NAME !== 'undefined'
+    ? process.env.GENERATE_SCOPED_NAME
+    : '[name]--[local]',
 });
 
 const babelRegister = require('babel-register');
