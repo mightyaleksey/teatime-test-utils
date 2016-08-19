@@ -1,6 +1,6 @@
 {
   "name": "teatime-test-utils",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Teatime test utils",
   "main": "preset.js",
   "engines": {
