@@ -1,10 +1,12 @@
 'use strict';
 
+exports.Button = require('./Button');
 exports.Check = require('./Check');
 exports.ColorPicker = require('./ColorPicker');
 exports.Input = require('./Input');
 exports.Radio = require('./Radio');
 exports.RadioGroup = require('./RadioGroup');
 exports.Select = require('./Select');
+exports.Spin = require('./Spin');
 exports.Textarea = require('./Textarea');
 exports.Tumbler = require('./Tumbler');

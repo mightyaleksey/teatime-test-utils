@@ -1,17 +1,25 @@
 'use strict';
 
 const {
+  Button,
   Check,
   ColorPicker,
   Input,
   Radio,
   RadioGroup,
   Select,
+  Spin,
   Textarea,
   Tumbler,
 } = require('../../pageObject');
 const { isString } = require('lodash/fp');
 const test = require('ava');
+
+test('Button', t => {
+  t.truthy(isString(Button.action));
+  t.truthy(isString(Button.link));
+  t.truthy(isString(Button.normal));
+});
 
 test('Check', t => {
   t.truthy(isString(Check.native)); // input
@@ -40,6 +48,10 @@ test('RadioGroup', t => {
 
 test('Select', t => { // input is hidden
   t.truthy(isString(Select.wrapper)); // container
+});
+
+test('Spin', t => {
+  t.truthy(isString(Spin));
 });
 
 test('Textarea', t => {
