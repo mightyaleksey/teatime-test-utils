@@ -13,8 +13,16 @@
     "test": "npm run test:unit",
     "test:unit": "ava --require ./preset test/*/*.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sullenor/teatime-test-utils.git"
+  },
   "author": "Alexey Litvinov",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sullenor/teatime-test-utils/issues"
+  },
+  "homepage": "https://github.com/sullenor/teatime-test-utils#readme",
   "devDependencies": {
     "ava": "^0.16.0",
     "static-server": "^2.0.3",
