@@ -9,6 +9,7 @@ const assert = require('power-assert');
 const getSelectedIndex = compose(findIndex(identity), browser.isSelected);
 
 exports.getCheckValue = getCheckValue;
+exports.getCheckGroupValue = getCheckGroupValue;
 exports.getColorPickerValue = getInputValue;
 exports.getInputValue = getInputValue;
 exports.getRadioValue = getRadioValue;
@@ -30,6 +31,8 @@ function getValue(selector) {
   case 'Check':
   case 'Tumbler':
     return getCheckValue(selector);
+  case 'CheckGroup':
+    return getCheckGroupValue(selector);
   case 'Input':
   case 'Select':
     return getInputValue(selector);
@@ -50,6 +53,18 @@ function getValue(selector) {
 function getCheckValue(selector) {
   assert(isString(selector));
   return browser.isSelected(selector);
+}
+
+/**
+ * @param  {string} selector
+ * @return {string[]}
+ */
+function getCheckGroupValue(selector) {
+  assert(isString(selector));
+  const elements = browser.elements(selector);
+  assert(elements.value.length > 0);
+  const states = elements.isSelected();
+  return elements.getAttribute(null, 'value').filter((_, i) => states[i]);
 }
 
 /**

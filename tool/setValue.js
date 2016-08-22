@@ -1,11 +1,18 @@
 'use strict';
 
 const { Select } = require('../pageObject');
-const { isBoolean, isString } = require('lodash/fp');
+const {
+  forEach,
+  invert,
+  isArray,
+  isBoolean,
+  isString,
+} = require('lodash/fp');
 const { identifyElement } = require('./identify');
 const assert = require('power-assert');
 
 exports.setCheckValue = setCheckValue;
+exports.setCheckGroupValue = setCheckGroupValue;
 exports.setColorPickerValue = setInputValue;
 exports.setInputValue = setInputValue;
 exports.setRadioValue = setRadioValue;
@@ -27,6 +34,8 @@ function setValue(selector, value) {
   switch (identifyElement(selector)) {
   case 'Check':
     return setCheckValue(selector, value);
+  case 'CheckGroup':
+    return setCheckGroupValue(selector, value);
   case 'Input':
     return setInputValue(selector, value);
   case 'Radio':
@@ -57,6 +66,33 @@ function setCheckValue(selector, value) {
 
   browser.click(selector + ' + label');
   browser.waitForSelected(selector, null, !value);
+}
+
+/**
+ * @param {string} selector
+ * @param {string[]} values
+ * @return {void}
+ */
+function setCheckGroupValue(selector, values) {
+  assert(isString(selector));
+  assert(isArray(values));
+
+  const expectedValues = invert(values);
+  assert(Object.keys(expectedValues).length === values.length,
+    'should use unique values');
+
+  const webElements = browser.elements(selector);
+  const currentState = webElements.isSelected();
+  const elementValues = webElements.getAttribute(null, 'value');
+
+  const valuesToUpdate = elementValues.filter((value, pos) =>
+    expectedValues.hasOwnProperty(value) !== currentState[pos]);
+
+  forEach(value => {
+    browser.click(`${selector}[value="${value}"] + label`);
+    browser.waitForSelected(`${selector}[value="${value}"]`, null,
+      !expectedValues.hasOwnProperty(value));
+  }, valuesToUpdate);
 }
 
 /**

@@ -3,6 +3,7 @@
 const {
   Button,
   Check,
+  CheckGroup,
   ColorPicker,
   Input,
   Radio,
@@ -24,6 +25,11 @@ test('Button', t => {
 test('Check', t => {
   t.truthy(isString(Check.native)); // input
   t.truthy(isString(Check.wrapper)); // container
+});
+
+test('CheckGroup', t => {
+  t.truthy(isString(CheckGroup.container)); // container
+  t.truthy(isString(CheckGroup.native)); // input
 });
 
 test('ColorPicker', t => {
