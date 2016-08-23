@@ -1,7 +1,7 @@
 'use strict';
 
 const { getCheckValue } = require('../../tool/getters');
-const { getValue, identify, setValue } = require('../../');
+const { getValue, identifyElement, setValue } = require('../../');
 const { setTumblerValue } = require('../../tool/setters');
 const assert = require('power-assert');
 
@@ -21,8 +21,8 @@ describe('Tumbler', () => {
     assert(getCheckValue('[name="show-images"]') === true);
   });
 
-  it('identify()', () => {
-    assert(identify('[name="show-images"]') === 'isTumbler');
+  it('identifyElement()', () => {
+    assert(identifyElement('[name="show-images"]') === 'isTumbler');
   });
 
   it('getValue() / setValue()', () => {

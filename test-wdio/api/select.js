@@ -2,7 +2,7 @@
 
 const { getInputValue } = require('../../tool/getters');
 const { getSelectors } = require('../../tool/selector');
-const { getValue, identify, setValue } = require('../../');
+const { getValue, identifyElement, setValue } = require('../../');
 const { setSelectValue } = require('../../tool/setters');
 const Select = getSelectors('teatime-components/style/select/select.css');
 const assert = require('power-assert');
@@ -41,9 +41,9 @@ describe('Select', () => {
     assert(getInputValue('[name="searchable-cities"]') === 'nyagan');
   });
 
-  it('identify()', () => {
-    assert(identify('[name="cities"]') === 'isSelect');
-    assert(identify('[name="searchable-cities"]') === 'isSelect');
+  it('identifyElement()', () => {
+    assert(identifyElement('[name="cities"]') === 'isSelect');
+    assert(identifyElement('[name="searchable-cities"]') === 'isSelect');
   });
 
   it('getValue() / setValue()', () => {

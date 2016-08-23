@@ -3,7 +3,7 @@
 const { compose, findIndex, identity } = require('lodash/fp');
 const { getRadioGroupValue } = require('../../tool/getters');
 const { getSelectors } = require('../../tool/selector');
-const { getValue, identify, setValue } = require('../../');
+const { getValue, identifyElement, setValue } = require('../../');
 const { setRadioValue } = require('../../tool/setters');
 const RadioGroup = getSelectors('teatime-components/style/radio-group/radio-group.css');
 const assert = require('power-assert');
@@ -31,8 +31,8 @@ describe('RadioGroup', () => {
     assert(getRadioGroupValue('[name="radio-group-motorrad-1"]') === 'vespa');
   });
 
-  it('identify()', () => {
-    assert(identify('[name="radio-group-motorrad-1"]') === 'isRadioGroup');
+  it('identifyElement()', () => {
+    assert(identifyElement('[name="radio-group-motorrad-1"]') === 'isRadioGroup');
   });
 
   it('getValue() / setValue()', () => {
