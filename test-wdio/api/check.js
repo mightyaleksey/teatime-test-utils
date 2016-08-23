@@ -1,7 +1,7 @@
 'use strict';
 
 const { getCheckValue } = require('../../tool/getters');
-const { getValue, identify, setValue } = require('../../');
+const { getValue, identifyElement, setValue } = require('../../');
 const { setCheckValue } = require('../../tool/setters');
 const assert = require('power-assert');
 
@@ -21,8 +21,8 @@ describe('Check', () => {
     assert(getCheckValue('[name="inactive-single"]') === false);
   });
 
-  it('identify()', () => {
-    assert(identify('[name="inactive-single"]') === 'isCheck');
+  it('identifyElement()', () => {
+    assert(identifyElement('[name="inactive-single"]') === 'isCheck');
   });
 
   it('getValue() / setValue()', () => {

@@ -1,7 +1,7 @@
 'use strict';
 
 const { getInputValue } = require('../../tool/getters');
-const { getValue, identify, setValue } = require('../../');
+const { getValue, identifyElement, setValue } = require('../../');
 const { setInputValue } = require('../../tool/setters');
 const assert = require('power-assert');
 
@@ -19,8 +19,8 @@ describe('ColorPicker', () => {
     assert(getInputValue('[name="blue water"]') === 'FEFEFE');
   });
 
-  it('identify()', () => {
-    assert(identify('[name="blue water"]') === 'isInput');
+  it('identifyElement()', () => {
+    assert(identifyElement('[name="blue water"]') === 'isInput');
   });
 
   it('getValue() / setValue()', () => {

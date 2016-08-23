@@ -1,7 +1,7 @@
 'use strict';
 
 const { getCheckGroupValue } = require('../../tool/getters');
-const { getValue, identify, setValue } = require('../../');
+const { getValue, identifyElement, setValue } = require('../../');
 const { setCheckGroupValue } = require('../../tool/setters');
 const assert = require('power-assert');
 
@@ -23,8 +23,8 @@ describe('CheckGroup', () => {
     assert.deepEqual(getCheckGroupValue('input[name="check-group-motorrad-1"]'), ['yamaha', 'mz']);
   });
 
-  it('identify()', () => {
-    assert(identify('input[name="check-group-motorrad-1"]') === 'isCheckGroup');
+  it('identifyElement()', () => {
+    assert(identifyElement('input[name="check-group-motorrad-1"]') === 'isCheckGroup');
   });
 
   it('getValue() / setValue()', () => {
