@@ -1,7 +1,8 @@
 'use strict';
 
-const { getColorPickerValue, getValue } = require('../../tool/getValue');
-const { setColorPickerValue, setValue } = require('../../tool/setValue');
+const { getInputValue } = require('../../tool/getters');
+const { getValue, identify, setValue } = require('../../');
+const { setInputValue } = require('../../tool/setters');
 const assert = require('power-assert');
 
 before(() => browser.url('/colorPicker.html'));
@@ -12,10 +13,14 @@ describe('ColorPicker', () => {
     assert(browser.getValue('[name="blue water"]') === 'BEBEBE');
   });
 
-  it('getColorPickerValue() / setColorPickerValue()', () => {
-    assert(getColorPickerValue('[name="blue water"]') === 'BEBEBE');
-    setColorPickerValue('[name="blue water"]', 'FEFEFE');
-    assert(getColorPickerValue('[name="blue water"]') === 'FEFEFE');
+  it('getInputValue() / setInputValue()', () => {
+    assert(getInputValue('[name="blue water"]') === 'BEBEBE');
+    setInputValue('[name="blue water"]', 'FEFEFE');
+    assert(getInputValue('[name="blue water"]') === 'FEFEFE');
+  });
+
+  it('identify()', () => {
+    assert(identify('[name="blue water"]') === 'isInput');
   });
 
   it('getValue() / setValue()', () => {

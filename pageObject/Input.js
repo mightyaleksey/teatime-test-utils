@@ -1,5 +1,5 @@
 'use strict';
 
-const { loadSelectors } = require('../tool/selector');
+const { getSelectors } = require('../tool/selector');
 
-module.exports = loadSelectors('teatime-components/style/input/input.css');
+module.exports = getSelectors('teatime-components/style/input/input.css');

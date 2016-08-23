@@ -1,9 +1,10 @@
 'use strict';
 
-const { loadSelectors } = require('../../tool/selector');
-const { getSelectValue, getValue } = require('../../tool/getValue');
-const { setSelectValue, setValue } = require('../../tool/setValue');
-const Select = loadSelectors('teatime-components/style/select/select.css');
+const { getInputValue } = require('../../tool/getters');
+const { getSelectors } = require('../../tool/selector');
+const { getValue, identify, setValue } = require('../../');
+const { setSelectValue } = require('../../tool/setters');
+const Select = getSelectors('teatime-components/style/select/select.css');
 const assert = require('power-assert');
 
 before(() => browser.url('/select.html'));
@@ -28,16 +29,21 @@ describe('Select', () => {
     assert(browser.getValue('[name="searchable-cities"]'), 'perm');
   });
 
-  it('getSelectValue() / setSelectValue()', () => {
-    assert(getSelectValue('[name="cities"]') === 'barnaul');
+  it('getInputValue() / setSelectValue()', () => {
+    assert(getInputValue('[name="cities"]') === 'barnaul');
     setSelectValue('[name="cities"]', 'yeysk');
-    assert(getSelectValue('[name="cities"]') === 'yeysk');
+    assert(getInputValue('[name="cities"]') === 'yeysk');
   });
 
-  it('getSelectValue() / setSelectValue() #searchable', () => {
-    assert(getSelectValue('[name="searchable-cities"]') === 'perm');
+  it('getInputValue() / setSelectValue() #searchable', () => {
+    assert(getInputValue('[name="searchable-cities"]') === 'perm');
     setSelectValue('[name="searchable-cities"]', 'nyagan');
-    assert(getSelectValue('[name="searchable-cities"]') === 'nyagan');
+    assert(getInputValue('[name="searchable-cities"]') === 'nyagan');
+  });
+
+  it('identify()', () => {
+    assert(identify('[name="cities"]') === 'isSelect');
+    assert(identify('[name="searchable-cities"]') === 'isSelect');
   });
 
   it('getValue() / setValue()', () => {

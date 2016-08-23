@@ -1,55 +1,29 @@
 'use strict';
 
 const { Select } = require('../pageObject');
-const {
-  forEach,
-  invert,
-  isArray,
-  isBoolean,
-  isString,
-} = require('lodash/fp');
-const { identifyElement } = require('./identify');
+const { forEach, invert, isArray, isBoolean, isString } = require('lodash/fp');
+const { getCheckValue } = require('./getters');
+const { isSelector } = require('./fn');
 const assert = require('power-assert');
 
 exports.setCheckValue = setCheckValue;
 exports.setCheckGroupValue = setCheckGroupValue;
-exports.setColorPickerValue = setInputValue;
 exports.setInputValue = setInputValue;
 exports.setRadioValue = setRadioValue;
-exports.setRadioGroupValue = setRadioValue;
 exports.setSelectValue = setSelectValue;
 exports.setTumblerValue = setTumblerValue;
-exports.setValue = setValue;
+
+exports.setters = {
+  isCheck: setCheckValue,
+  isCheckGroup: setCheckGroupValue,
+  isInput: setInputValue,
+  isRadio: setRadioValue,
+  isRadioGroup: setRadioValue,
+  isSelect: setSelectValue,
+  isTumbler: setTumblerValue,
+};
 
 /* global browser */
-
-/**
- * @param {string} selector
- * @param {boolean|string} value
- * @return {void}
- */
-function setValue(selector, value) {
-  assert(isString(selector));
-
-  switch (identifyElement(selector)) {
-  case 'Check':
-    return setCheckValue(selector, value);
-  case 'CheckGroup':
-    return setCheckGroupValue(selector, value);
-  case 'Input':
-    return setInputValue(selector, value);
-  case 'Radio':
-  case 'RadioGroup':
-    return setRadioValue(selector, value);
-  case 'Select':
-    return setSelectValue(selector, value);
-  case 'Tumbler':
-    return setTumblerValue(selector, value);
-  }
-
-  const er = new Error(`Unsupported control type \`${selector}\``);
-  throw er;
-}
 
 /**
  * @param {string} selector
@@ -57,14 +31,12 @@ function setValue(selector, value) {
  * @return {void}
  */
 function setCheckValue(selector, value) {
-  assert(isString(selector));
-  assert(isBoolean(value));
-
-  if (browser.isSelected(selector) === value) {
+  if (getCheckValue(selector) === value) {
     return;
   }
 
-  browser.click(selector + ' + label');
+  assert(isBoolean(value));
+  browser.click(`${selector} + label`);
   browser.waitForSelected(selector, null, !value);
 }
 
@@ -97,11 +69,11 @@ function setCheckGroupValue(selector, values) {
 
 /**
  * @param {string} selector
- * @param {boolean} value
+ * @param {string} value
  * @return {void}
  */
 function setInputValue(selector, value) {
-  assert(isString(selector));
+  isSelector(selector);
   assert(isString(value));
   browser.setValue(selector, value);
 }
@@ -112,8 +84,11 @@ function setInputValue(selector, value) {
  * @return {void}
  */
 function setRadioValue(selector, value) {
-  assert(isString(selector));
   assert(isString(value));
+  if (getCheckValue(`${selector}[value="${value}"]`)) {
+    return;
+  }
+
   browser.click(`${selector}[value="${value}"] + label`);
   browser.waitForSelected(`${selector}[value="${value}"]`);
 }
@@ -124,9 +99,11 @@ function setRadioValue(selector, value) {
  * @return {void}
  */
 function setSelectValue(selector, value) {
+  isSelector(selector);
   browser.click(`${selector} + ${Select.control}`);
   browser.waitForVisible(`${selector} ~ ${Select.menu}`);
 
+  assert(isString(value));
   browser.click(`${selector} ~ ${Select.menu} [data-value="${value}"]`);
   browser.waitForValue(selector);
 }
@@ -137,13 +114,11 @@ function setSelectValue(selector, value) {
  * @return {void}
  */
 function setTumblerValue(selector, value) {
-  assert(isString(selector));
-  assert(isBoolean(value));
-
-  if (browser.isSelected(selector) === value) {
+  if (getCheckValue(selector) === value) {
     return;
   }
 
+  assert(isBoolean(value));
   browser.click(selector);
   browser.waitForSelected(selector, null, !value);
 }

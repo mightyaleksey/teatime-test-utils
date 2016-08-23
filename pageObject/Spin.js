@@ -1,6 +1,6 @@
 'use strict';
 
-const { loadSelectors } = require('../tool/selector');
+const { getSelectors } = require('../tool/selector');
 
-module.exports = loadSelectors('teatime-components/style/spin/spin.css')
+module.exports = getSelectors('teatime-components/style/spin/spin.css')
   .control;

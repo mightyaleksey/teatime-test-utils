@@ -1,30 +1,16 @@
 'use strict';
 
-const {
-  loadSelectors,
-  transformFromSelector,
-  transformToSelector,
-} = require('../../tool/selector');
-const test = require('ava');
+const { toClassSelector, toSelector } = require('../../tool/selector');
+const test = require('tape');
 
-test('transformFromSelector()', t => {
-  t.is(transformFromSelector(''), '');
-  t.is(transformFromSelector('.a'), 'a');
-  t.is(transformFromSelector('.a.b.c'), 'a b c');
+test('toClassSelector()', t => {
+  t.equal(toClassSelector('page'), '.page');
+  t.equal(toClassSelector(''), '.');
+  t.end();
 });
 
-test('transformToSelector()', t => {
-  t.is(transformToSelector('input'), '.input');
-  t.is(transformToSelector('input mixin'), '.input.mixin');
-});
-
-test('loadSelectors()', t => {
-  const selectors = loadSelectors('../fixture/style/input.css');
-
-  t.deepEqual(selectors, {
-    clear: '.input--clear',
-    control: '.input--control',
-    hasClear: '.input--hasClear',
-    wrapper: '.input--wrapper',
-  });
+test('toSelector()', t => {
+  t.equal(toSelector('page page--awesome'), '.page.page--awesome');
+  t.equal(toSelector(''), '');
+  t.end();
 });

@@ -1,48 +1,32 @@
 'use strict';
 
 const {
+  add,
   compose,
+  curry,
+  filter,
+  includes,
   join,
   map,
   mapValues,
-  replace,
+  negate,
+  overEvery,
   split,
-  trim,
 } = require('lodash/fp');
-const { dirname, resolve } = require('path');
 
-const transformFromSelector = compose(trim, replace(/\./g, ' '));
-const transformToSelector = compose(join(''), map(classSelector), split(' '));
-const loadSelectors = compose(mapValues(transformToSelector), require, abspath);
+const is = curry((predicate, selector) =>
+  overEvery([predicate, includes(selector)]));
 
-exports.abspath = abspath;
-exports.classSelector = classSelector;
-exports.loadSelectors = loadSelectors;
-exports.transformFromSelector = transformFromSelector;
-exports.transformToSelector = transformToSelector;
+const isSetOfSelectors = includes(',');
+const isUniqueSelector = negate(isSetOfSelectors);
 
-/**
- * @param  {string} filepath
- * @return {string}
- */
-function abspath(filepath) {
-  return isRelative(filepath)
-    ? resolve(dirname(module.parent.filename), filepath)
-    : filepath;
-}
+const toClassSelector = add('.');
+const toSelector = compose(join(''), map(toClassSelector), filter(Boolean), split(' '));
+const getSelectors = compose(mapValues(toSelector), require);
 
-/**
- * @param  {string} className
- * @return {string}
- */
-function classSelector(className) {
-  return '.' + className;
-}
-
-/**
- * @param  {string}  filepath
- * @return {boolean}
- */
-function isRelative(filepath) {
-  return filepath.charAt(0) === '.';
-}
+exports.getSelectors = getSelectors;
+exports.is = is;
+exports.isSetOfSelectors = isSetOfSelectors;
+exports.isUniqueSelector = isUniqueSelector;
+exports.toClassSelector = toClassSelector;
+exports.toSelector = toSelector;

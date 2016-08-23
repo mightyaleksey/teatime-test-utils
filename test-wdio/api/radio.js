@@ -1,10 +1,11 @@
 'use strict';
 
 const { compose, findIndex, identity } = require('lodash/fp');
-const { loadSelectors } = require('../../tool/selector');
-const { getRadioValue, getValue } = require('../../tool/getValue');
-const { setRadioValue, setValue } = require('../../tool/setValue');
-const Radio = loadSelectors('teatime-components/style/radio/radio.css');
+const { getRadioValue } = require('../../tool/getters');
+const { getSelectors } = require('../../tool/selector');
+const { getValue, identify, setValue } = require('../../');
+const { setRadioValue } = require('../../tool/setters');
+const Radio = getSelectors('teatime-components/style/radio/radio.css');
 const assert = require('power-assert');
 
 const getSelectedIndex = compose(findIndex(identity), browser.isSelected);
@@ -28,6 +29,10 @@ describe('Radio', () => {
     assert(getRadioValue('[name="motorrad-1"]') === 'kawasaki');
     setRadioValue('[name="motorrad-1"]', 'vespa');
     assert(getRadioValue('[name="motorrad-1"]') === 'vespa');
+  });
+
+  it('identify()', () => {
+    assert(identify('[name="motorrad-1"]') === 'isRadio');
   });
 
   it('getValue() / setValue()', () => {

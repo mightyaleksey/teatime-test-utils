@@ -2,7 +2,7 @@
   "name": "teatime-test-utils",
   "version": "0.7.2",
   "description": "Teatime test utils",
-  "main": "preset.js",
+  "main": "index.js",
   "engines": {
     "node": ">=6.3"
   },
@@ -11,7 +11,7 @@
     "docker:run": "docker run --interactive --rm --tty --volume $(pwd):/var/www/test $npm_package_name:$npm_package_version",
     "lint": "eslint {pageObject,test*,tool}/**/*.js *.js",
     "test": "npm run test:unit",
-    "test:unit": "ava --require ./preset test/*/*.js"
+    "test:unit": "tape --require ./test/setup test/*/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,17 +24,17 @@
   },
   "homepage": "https://github.com/sullenor/teatime-test-utils#readme",
   "devDependencies": {
-    "ava": "^0.16.0",
     "static-server": "^2.0.3",
-    "teatime-components": "^0.6.6",
+    "tape": "^4.6.0",
+    "teatime-components": "^0.6.7",
     "wdio-spec-reporter": "0.0.3",
-    "webdriverio": "^4.2.3"
+    "webdriverio": "^4.2.7"
   },
   "dependencies": {
     "babel-preset-power-assert": "^1.0.0",
     "babel-register": "^6.11.6",
-    "css-modules-require-hook": "^4.0.1",
-    "lodash": "^4.14.1",
+    "css-modules-require-hook": "^4.0.2",
+    "lodash": "^4.15.0",
     "power-assert": "^1.4.1"
   }
 }
