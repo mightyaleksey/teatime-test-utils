@@ -17,11 +17,11 @@ describe('Radio', () => {
     browser.click('[name="motorrad-1"][value="kawasaki"] + label');
     browser.waitForSelected('[name="motorrad-1"][value="kawasaki"]');
 
-    const index = getSelectedIndex('[name="motorrad-1"]');
+    const index = getSelectedIndex('input[name="motorrad-1"]');
     assert(index > -1);
 
     const selector = Radio.wrapper +
-      `:nth-of-type(${index}) [name="motorrad-1"]`;
+      `:nth-of-type(${index + 1}) [name="motorrad-1"]`;
     assert(browser.getAttribute(selector, 'value') === 'kawasaki');
   });
 

@@ -43,13 +43,15 @@ function getCheckGroupValue(selector) {
  * @return {string|null}
  */
 function getRadioValue(selector) {
-  const selectedIndex = findIndex(identity, getCheckValue(selector));
+  const selectedIndex = findIndex(identity,
+    getCheckValue(`${Radio.wrapper} ${selector}`));
+
   if (selectedIndex === -1) {
     return null;
   }
 
   return getAttribute('value',
-    `${Radio.wrapper}:nth-of-type(${selectedIndex}) ${selector}`);
+    `${Radio.wrapper}:nth-of-type(${selectedIndex + 1}) ${selector}`);
 }
 
 /**
@@ -57,11 +59,13 @@ function getRadioValue(selector) {
  * @return {string|null}
  */
 function getRadioGroupValue(selector) {
-  const selectedIndex = findIndex(identity, getCheckValue(selector));
+  const selectedIndex = findIndex(identity,
+    getCheckValue(`${RadioGroup.wrapper} ${selector}`));
+
   if (selectedIndex === -1) {
     return null;
   }
 
   return getAttribute('value',
-    `${RadioGroup.wrapper}:nth-of-type(${selectedIndex}) ${selector}`);
+    `${RadioGroup.wrapper}:nth-of-type(${selectedIndex + 1}) ${selector}`);
 }
