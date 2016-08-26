@@ -26,3 +26,13 @@ exports.isRadio = isRadio;
 exports.isRadioGroup = isRadioGroup;
 exports.isSelect = isSelect;
 exports.isTumbler = isTumbler;
+
+exports.identities = {
+  Check: isCheck,
+  CheckGroup: isCheckGroup,
+  Input: isInput,
+  Radio: isRadio,
+  RadioGroup: isRadioGroup,
+  Select: isSelect,
+  Tumbler: isTumbler,
+};

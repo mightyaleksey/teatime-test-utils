@@ -14,13 +14,13 @@ exports.setSelectValue = setSelectValue;
 exports.setTumblerValue = setTumblerValue;
 
 exports.setters = {
-  isCheck: setCheckValue,
-  isCheckGroup: setCheckGroupValue,
-  isInput: setInputValue,
-  isRadio: setRadioValue,
-  isRadioGroup: setRadioValue,
-  isSelect: setSelectValue,
-  isTumbler: setTumblerValue,
+  Check: setCheckValue,
+  CheckGroup: setCheckGroupValue,
+  Input: setInputValue,
+  Radio: setRadioValue,
+  RadioGroup: setRadioValue,
+  Select: setSelectValue,
+  Tumbler: setTumblerValue,
 };
 
 /* global browser */

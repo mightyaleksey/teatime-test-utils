@@ -42,8 +42,8 @@ describe('Select', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="cities"]') === 'isSelect');
-    assert(identifyElement('[name="searchable-cities"]') === 'isSelect');
+    assert(identifyElement('[name="cities"]') === 'Select');
+    assert(identifyElement('[name="searchable-cities"]') === 'Select');
   });
 
   it('getValue() / setValue()', () => {

@@ -20,7 +20,7 @@ describe('ColorPicker', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="blue water"]') === 'isInput');
+    assert(identifyElement('[name="blue water"]') === 'Input');
   });
 
   it('getValue() / setValue()', () => {

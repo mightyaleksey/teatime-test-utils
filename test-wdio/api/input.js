@@ -20,7 +20,7 @@ describe('Input', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="active-input"]') === 'isInput');
+    assert(identifyElement('[name="active-input"]') === 'Input');
   });
 
   it('getValue() / setValue()', () => {

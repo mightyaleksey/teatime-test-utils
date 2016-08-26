@@ -24,7 +24,7 @@ describe('CheckGroup', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('input[name="check-group-motorrad-1"]') === 'isCheckGroup');
+    assert(identifyElement('input[name="check-group-motorrad-1"]') === 'CheckGroup');
   });
 
   it('getValue() / setValue()', () => {

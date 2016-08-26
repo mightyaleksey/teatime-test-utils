@@ -32,7 +32,7 @@ describe('Radio', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="motorrad-1"]') === 'isRadio');
+    assert(identifyElement('[name="motorrad-1"]') === 'Radio');
   });
 
   it('getValue() / setValue()', () => {

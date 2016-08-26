@@ -18,13 +18,13 @@ exports.getRadioValue = getRadioValue;
 exports.getRadioGroupValue = getRadioGroupValue;
 
 exports.getters = {
-  isCheck: getCheckValue,
-  isCheckGroup: getCheckGroupValue,
-  isInput: getInputValue,
-  isRadio: getRadioValue,
-  isRadioGroup: getRadioGroupValue,
-  isSelect: getInputValue,
-  isTumbler: getCheckValue,
+  Check: getCheckValue,
+  CheckGroup: getCheckGroupValue,
+  Input: getInputValue,
+  Radio: getRadioValue,
+  RadioGroup: getRadioGroupValue,
+  Select: getInputValue,
+  Tumbler: getCheckValue,
 };
 
 /**

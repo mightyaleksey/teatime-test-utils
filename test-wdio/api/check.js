@@ -22,7 +22,7 @@ describe('Check', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="inactive-single"]') === 'isCheck');
+    assert(identifyElement('[name="inactive-single"]') === 'Check');
   });
 
   it('getValue() / setValue()', () => {

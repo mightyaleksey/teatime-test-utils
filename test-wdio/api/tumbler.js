@@ -22,7 +22,7 @@ describe('Tumbler', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="show-images"]') === 'isTumbler');
+    assert(identifyElement('[name="show-images"]') === 'Tumbler');
   });
 
   it('getValue() / setValue()', () => {

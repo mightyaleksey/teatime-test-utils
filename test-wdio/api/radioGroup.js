@@ -32,7 +32,7 @@ describe('RadioGroup', () => {
   });
 
   it('identifyElement()', () => {
-    assert(identifyElement('[name="radio-group-motorrad-1"]') === 'isRadioGroup');
+    assert(identifyElement('[name="radio-group-motorrad-1"]') === 'RadioGroup');
   });
 
   it('getValue() / setValue()', () => {

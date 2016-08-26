@@ -1,8 +1,8 @@
 'use strict';
 
 const { getters } = require('./tool/getters');
+const { identities } = require('./tool/identities');
 const { setters } = require('./tool/setters');
-const identities = require('./tool/identities');
 
 const { getValue, identify, identifyElement, setValue } = require('./tool');
 
