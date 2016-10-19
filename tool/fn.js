@@ -1,5 +1,6 @@
 'use strict';
 
+const { broGetAttribute } = require('./bro');
 const {
   compose,
   constant,
@@ -10,9 +11,8 @@ const {
 } = require('lodash/fp');
 const assert = require('power-assert');
 
-/* global browser */
 const getAttribute = curry((attributeName, selector) =>
-  browser.getAttribute(selector, attributeName));
+  broGetAttribute(selector, attributeName));
 
 const getPairs = compose(map(flip), toPairs);
 

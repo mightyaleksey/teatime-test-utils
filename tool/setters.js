@@ -1,6 +1,14 @@
 'use strict';
 
 const { Select } = require('../pageObject');
+const {
+  broClick,
+  broElements,
+  broSetValue,
+  broWaitForSelected,
+  broWaitForValue,
+  broWaitForVisible,
+} = require('./bro');
 const { forEach, invert, isArray, isBoolean, isString } = require('lodash/fp');
 const { getCheckValue } = require('./getters');
 const { isSelector } = require('./fn');
@@ -23,8 +31,6 @@ exports.setters = {
   Tumbler: setTumblerValue,
 };
 
-/* global browser */
-
 /**
  * @param {string} selector
  * @param {boolean} value
@@ -36,8 +42,8 @@ function setCheckValue(selector, value) {
   }
 
   assert(isBoolean(value));
-  browser.click(`${selector} + label`);
-  browser.waitForSelected(selector, null, !value);
+  broClick(`${selector} + label`);
+  broWaitForSelected(selector, null, !value);
 }
 
 /**
@@ -53,7 +59,7 @@ function setCheckGroupValue(selector, values) {
   assert(Object.keys(expectedValues).length === values.length,
     'should use unique values');
 
-  const webElements = browser.elements(selector);
+  const webElements = broElements(selector);
   const currentState = webElements.isSelected();
   const elementValues = webElements.getAttribute(null, 'value');
 
@@ -61,8 +67,8 @@ function setCheckGroupValue(selector, values) {
     expectedValues.hasOwnProperty(value) !== currentState[pos]);
 
   forEach(value => {
-    browser.click(`${selector}[value="${value}"] + label`);
-    browser.waitForSelected(`${selector}[value="${value}"]`, null,
+    broClick(`${selector}[value="${value}"] + label`);
+    broWaitForSelected(`${selector}[value="${value}"]`, null,
       !expectedValues.hasOwnProperty(value));
   }, valuesToUpdate);
 }
@@ -75,7 +81,7 @@ function setCheckGroupValue(selector, values) {
 function setInputValue(selector, value) {
   isSelector(selector);
   assert(isString(value));
-  browser.setValue(selector, value);
+  broSetValue(selector, value);
 }
 
 /**
@@ -89,8 +95,8 @@ function setRadioValue(selector, value) {
     return;
   }
 
-  browser.click(`${selector}[value="${value}"] + label`);
-  browser.waitForSelected(`${selector}[value="${value}"]`);
+  broClick(`${selector}[value="${value}"] + label`);
+  broWaitForSelected(`${selector}[value="${value}"]`);
 }
 
 /**
@@ -100,12 +106,12 @@ function setRadioValue(selector, value) {
  */
 function setSelectValue(selector, value) {
   isSelector(selector);
-  browser.click(`${selector} + ${Select.control}`);
-  browser.waitForVisible(`${selector} ~ ${Select.menu}`);
+  broClick(`${selector} + ${Select.control}`);
+  broWaitForVisible(`${selector} ~ ${Select.menu}`);
 
   assert(isString(value));
-  browser.click(`${selector} ~ ${Select.menu} [data-value="${value}"]`);
-  browser.waitForValue(selector);
+  broClick(`${selector} ~ ${Select.menu} [data-value="${value}"]`);
+  broWaitForValue(selector);
 }
 
 /**
@@ -119,6 +125,6 @@ function setTumblerValue(selector, value) {
   }
 
   assert(isBoolean(value));
-  browser.click(selector);
-  browser.waitForSelected(selector, null, !value);
+  broClick(selector);
+  broWaitForSelected(selector, null, !value);
 }

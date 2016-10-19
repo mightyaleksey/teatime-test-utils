@@ -9,3 +9,5 @@ node_modules
 
 # WebDriverIO
 test-wdio-error-shots
+
+yarn.lock

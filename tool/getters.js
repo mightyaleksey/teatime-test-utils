@@ -1,13 +1,13 @@
 'use strict';
 
+const { broElements, broGetValue, broIsSelected } = require('./bro');
 const { compose, findIndex, identity } = require('lodash/fp');
 const { getAttribute, isSelector } = require('./fn');
 const Radio = require('../pageObject/Radio');
 const RadioGroup = require('../pageObject/RadioGroup');
 
-/* global browser */
-const getCheckValue = compose(browser.isSelected, isSelector);
-const getInputValue = compose(browser.getValue, isSelector);
+const getCheckValue = compose(broIsSelected, isSelector);
+const getInputValue = compose(broGetValue, isSelector);
 
 compose(findIndex(identity), getCheckValue);
 
@@ -33,7 +33,7 @@ exports.getters = {
  */
 function getCheckGroupValue(selector) {
   isSelector(selector);
-  const elements = browser.elements(selector);
+  const elements = broElements(selector);
   const states = elements.isSelected();
   return elements.getAttribute(null, 'value').filter((_, i) => states[i]);
 }
