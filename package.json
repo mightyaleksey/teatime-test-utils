@@ -1,6 +1,6 @@
 {
   "name": "teatime-test-utils",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Teatime test utils",
   "main": "index.js",
   "engines": {
@@ -25,16 +25,17 @@
   "homepage": "https://github.com/sullenor/teatime-test-utils#readme",
   "devDependencies": {
     "static-server": "^2.0.3",
-    "tape": "^4.6.0",
+    "tape": "^4.6.2",
     "teatime-components": "^0.6.8",
-    "wdio-spec-reporter": "0.0.3",
-    "webdriverio": "^4.2.7"
+    "wdio-mocha-framework": "^0.4.3",
+    "wdio-spec-reporter": "^0.0.3",
+    "webdriverio": "^4.2.16"
   },
   "dependencies": {
     "babel-preset-power-assert": "^1.0.0",
-    "babel-register": "^6.11.6",
-    "css-modules-require-hook": "^4.0.2",
-    "lodash": "^4.15.0",
+    "babel-register": "^6.16.3",
+    "css-modules-require-hook": "^4.0.5",
+    "lodash": "^4.16.4",
     "power-assert": "^1.4.1"
   }
 }
