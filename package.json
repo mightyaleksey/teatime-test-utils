@@ -35,7 +35,7 @@
     "babel-preset-power-assert": "^1.0.0",
     "babel-register": "^6.16.3",
     "css-modules-require-hook": "^4.0.5",
-    "lodash": "^4.16.4",
+    "lodash": "^4.16.5",
     "power-assert": "^1.4.1"
   }
 }
