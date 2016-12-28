@@ -26,7 +26,7 @@
   "devDependencies": {
     "static-server": "^2.0.3",
     "tape": "^4.6.2",
-    "teatime-components": "^0.6.8",
+    "teatime-components": "^0.7.0",
     "wdio-mocha-framework": "^0.4.3",
     "wdio-spec-reporter": "^0.0.3",
     "webdriverio": "^4.2.16"
