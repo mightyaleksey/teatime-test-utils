@@ -1,5 +1,5 @@
 'use strict';
 
-const { getSelectors } = require('../tool/selector');
+const {getSelectors} = require('../tool/selector');
 
 module.exports = getSelectors('teatime-components/style/check/check.css');

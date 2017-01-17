@@ -26,7 +26,6 @@ exports.setters = {
   CheckGroup: setCheckGroupValue,
   Input: setInputValue,
   Radio: setRadioValue,
-  RadioGroup: setRadioValue,
   Select: setSelectValue,
   Tumbler: setTumblerValue,
 };

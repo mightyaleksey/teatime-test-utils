@@ -22,7 +22,6 @@ exports.getters = {
   CheckGroup: getCheckGroupValue,
   Input: getInputValue,
   Radio: getRadioValue,
-  RadioGroup: getRadioGroupValue,
   Select: getInputValue,
   Tumbler: getCheckValue,
 };
