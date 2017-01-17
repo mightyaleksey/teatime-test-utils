@@ -27,7 +27,7 @@
     "static-server": "^2.0.3",
     "tape": "^4.6.2",
     "teatime-components": "^0.8.5",
-    "wdio-mocha-framework": "^0.4.3",
+    "wdio-mocha-framework": "^0.5.5",
     "wdio-spec-reporter": "^0.0.3",
     "webdriverio": "^4.2.16"
   },
