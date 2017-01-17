@@ -4,7 +4,6 @@ const { broElements, broGetValue, broIsSelected } = require('./bro');
 const { compose, findIndex, identity } = require('lodash/fp');
 const { getAttribute, isSelector } = require('./fn');
 const Radio = require('../pageObject/Radio');
-const RadioGroup = require('../pageObject/RadioGroup');
 
 const getCheckValue = compose(broIsSelected, isSelector);
 const getInputValue = compose(broGetValue, isSelector);
@@ -15,7 +14,6 @@ exports.getCheckValue = getCheckValue;
 exports.getCheckGroupValue = getCheckGroupValue;
 exports.getInputValue = getInputValue;
 exports.getRadioValue = getRadioValue;
-exports.getRadioGroupValue = getRadioGroupValue;
 
 exports.getters = {
   Check: getCheckValue,
@@ -51,20 +49,4 @@ function getRadioValue(selector) {
 
   return getAttribute('value',
     `${Radio.wrapper}:nth-of-type(${selectedIndex + 1}) ${selector}`);
-}
-
-/**
- * @param  {string} selector
- * @return {string|null}
- */
-function getRadioGroupValue(selector) {
-  const selectedIndex = findIndex(identity,
-    getCheckValue(`${RadioGroup.wrapper} ${selector}`));
-
-  if (selectedIndex === -1) {
-    return null;
-  }
-
-  return getAttribute('value',
-    `${RadioGroup.wrapper}:nth-of-type(${selectedIndex + 1}) ${selector}`);
 }

@@ -5,7 +5,6 @@ const {
   CheckGroup,
   Input,
   Radio,
-  RadioGroup,
   Select,
   Tumbler,
 } = require('../pageObject');
