@@ -5,7 +5,6 @@ const {
   CheckGroup,
   Input,
   Radio,
-  RadioGroup,
   Select,
   Tumbler,
 } = require('../pageObject');
@@ -15,7 +14,6 @@ const isCheck = is(isUniqueSelector, Check.native);
 const isCheckGroup = is(isSetOfSelectors, CheckGroup.native);
 const isInput = is(isUniqueSelector, Input.control);
 const isRadio = is(isSetOfSelectors, Radio.native);
-const isRadioGroup = is(isSetOfSelectors, RadioGroup.native);
 const isSelect = is(isUniqueSelector, Select.native);
 const isTumbler = is(isUniqueSelector, Tumbler.native);
 
@@ -23,7 +21,6 @@ exports.isCheck = isCheck;
 exports.isCheckGroup = isCheckGroup;
 exports.isInput = isInput;
 exports.isRadio = isRadio;
-exports.isRadioGroup = isRadioGroup;
 exports.isSelect = isSelect;
 exports.isTumbler = isTumbler;
 
@@ -32,7 +29,6 @@ exports.identities = {
   CheckGroup: isCheckGroup,
   Input: isInput,
   Radio: isRadio,
-  RadioGroup: isRadioGroup,
   Select: isSelect,
   Tumbler: isTumbler,
 };

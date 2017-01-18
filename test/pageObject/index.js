@@ -7,7 +7,6 @@ const {
   ColorPicker,
   Input,
   Radio,
-  RadioGroup,
   Select,
   Spin,
   Textarea,
@@ -50,12 +49,6 @@ test('Input', t => {
 test('Radio', t => {
   t.ok(isString(Radio.container)); // container
   t.ok(isString(Radio.native)); // input
-  t.end();
-});
-
-test('RadioGroup', t => {
-  t.ok(isString(RadioGroup.container)); // container
-  t.ok(isString(RadioGroup.native)); // input
   t.end();
 });
 

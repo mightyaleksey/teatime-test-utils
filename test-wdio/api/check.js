@@ -5,7 +5,7 @@ const { getValue, identifyElement, setValue } = require('../../');
 const { setCheckValue } = require('../../tool/setters');
 const assert = require('power-assert');
 
-before(() => browser.url('/check.html'));
+before(() => browser.url('/#!/Check/1'));
 
 describe('Check', () => {
   it('browser.setValue()', () => {

@@ -6,7 +6,6 @@ exports.CheckGroup = require('./CheckGroup');
 exports.ColorPicker = require('./ColorPicker');
 exports.Input = require('./Input');
 exports.Radio = require('./Radio');
-exports.RadioGroup = require('./RadioGroup');
 exports.Select = require('./Select');
 exports.Spin = require('./Spin');
 exports.Textarea = require('./Textarea');
