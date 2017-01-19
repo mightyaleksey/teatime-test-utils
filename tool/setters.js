@@ -105,7 +105,7 @@ function setRadioValue(selector, value) {
  */
 function setSelectValue(selector, value) {
   isSelector(selector);
-  broClick(`${selector} + ${Select.control}`);
+  broClick(`${selector} + ${Select.baseline} ${Select.arrow}`);
   broWaitForVisible(`${selector} ~ ${Select.menu}`);
 
   assert(isString(value));
