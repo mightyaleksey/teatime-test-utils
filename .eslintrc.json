@@ -6,6 +6,15 @@
     "es6": true
   },
   "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "comma-dangle": [
       "error",
@@ -24,7 +33,7 @@
       80,
       2,
       {
-        "ignorePattern": "'.{40,}?[^\\\\]'",
+        "ignorePattern": "'.{30,}?[^\\\\]'",
         "ignoreUrls": true
       }
     ],

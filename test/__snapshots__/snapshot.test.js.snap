@@ -56,6 +56,139 @@ exports[`test Check 1`] = `
 </span>
 `;
 
+exports[`test Radio 1`] = `
+<div
+  className="container"
+  id={undefined}
+  onChange={undefined}>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime2"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="ducati" />
+    <label
+      className="control"
+      htmlFor="_teatime2" />
+    <label
+      className="label"
+      htmlFor="_teatime2">
+      Ducati
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime3"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="honda" />
+    <label
+      className="control"
+      htmlFor="_teatime3" />
+    <label
+      className="label"
+      htmlFor="_teatime3">
+      Honda
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime4"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="jawa" />
+    <label
+      className="control"
+      htmlFor="_teatime4" />
+    <label
+      className="label"
+      htmlFor="_teatime4">
+      Jawa
+    </label>
+  </span>
+</div>
+`;
+
+exports[`test RadioButton 1`] = `
+<div
+  className="container"
+  id={undefined}
+  onChange={undefined}>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime6"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="ducati" />
+    <label
+      className="control"
+      htmlFor="_teatime6">
+      Ducati
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime7"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="honda" />
+    <label
+      className="control"
+      htmlFor="_teatime7">
+      Honda
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime8"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="jawa" />
+    <label
+      className="control"
+      htmlFor="_teatime8">
+      Jawa
+    </label>
+  </span>
+</div>
+`;
+
 exports[`test Select 1`] = `
 <span
   className="wrapper"
