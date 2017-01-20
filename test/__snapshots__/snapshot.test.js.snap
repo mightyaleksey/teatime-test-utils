@@ -31,6 +31,31 @@ exports[`test ButtonThemeNormal 1`] = `
 </button>
 `;
 
+exports[`test Check 1`] = `
+<span
+  className="wrapper"
+  onChange={undefined}>
+  <input
+    checked={undefined}
+    className="native"
+    defaultChecked={undefined}
+    disabled={undefined}
+    id="checks-id"
+    name="check-control"
+    onChange={[Function]}
+    type="checkbox"
+    value={undefined} />
+  <label
+    className="control"
+    htmlFor="checks-id" />
+  <label
+    className="label"
+    htmlFor="checks-id">
+    checks label
+  </label>
+</span>
+`;
+
 exports[`test Select 1`] = `
 <span
   className="wrapper"

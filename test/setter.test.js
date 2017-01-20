@@ -1,10 +1,16 @@
-import {getInputValue} from '../lib/getter';
+import {getCheckValue, getInputValue} from '../lib/getter';
 import {setContext} from '../lib/__mocks__/bro';
-import {setSelectValue} from '../lib/setter';
+import {setCheckValue, setSelectValue} from '../lib/setter';
+import Check from './templates/Check.snap';
 import Select from './templates/Select.snap';
-import SelectSearchable from './templates/SelectSearchable.snap';
 
 jest.mock('../lib/bro');
+
+test.skip('setCheckValue', () => {
+  setContext(Check());
+  setCheckValue('[name="check-control"]', true);
+  expect(getCheckValue('[name="check-control"]')).toBe(true);
+});
 
 test.skip('setSelectValue', () => {
   setContext(Select());
