@@ -1,8 +1,8 @@
 'use strict';
 
 const {identify} = require('./lib/identify');
+const {isFunction, propertyOf} = require('lodash/fp');
 const {getAttribute} = require('./lib/bro');
-const {propertyOf} = require('lodash/fp');
 
 const getClassName = selector => getAttribute(selector, 'class');
 
@@ -61,7 +61,13 @@ const getValue = (mapOfGetters = getters, mapOfIdentities = identities) => {
   return selector => {
     const className = getClassName(selector);
     const controlType = getType(className);
+    if (!controlType) {
+      throw new Error('Unknown control `' + selector + '` `' + className + '`');
+    }
     const controlGetter = getControlGetter(controlType);
+    if (!isFunction(controlGetter)) {
+      throw new Error('Unknown getter for element `' + selector + '` `' + className + '`');
+    }
     return controlGetter(selector);
   };
 };
@@ -73,7 +79,13 @@ const setValue = (mapOfSetters = setters, mapOfIdentities = identities) => {
   return (selector, value) => {
     const className = getClassName(selector);
     const controlType = getType(className);
+    if (!controlType) {
+      throw new Error('Unknown control `' + selector + '` `' + className + '`');
+    }
     const controlSetter = getControlSetter(controlType);
+    if (!isFunction(controlSetter)) {
+      throw new Error('Unknown setter for element `' + selector + '` `' + className + '`');
+    }
     return controlSetter(selector, value);
   };
 };
