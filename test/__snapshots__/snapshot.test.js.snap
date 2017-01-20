@@ -56,6 +56,80 @@ exports[`test Check 1`] = `
 </span>
 `;
 
+exports[`test CheckGroup 1`] = `
+<div
+  className="container"
+  id={undefined}
+  onChange={undefined}>
+  <div
+    className="column">
+    <span
+      className="wrapper">
+      <input
+        checked={false}
+        className="native"
+        defaultValue={undefined}
+        disabled={undefined}
+        id="_teatime1"
+        name="checkGroup-control"
+        onChange={[Function]}
+        type="checkbox"
+        value="ducati" />
+      <label
+        className="control"
+        htmlFor="_teatime1" />
+      <label
+        className="label"
+        htmlFor="_teatime1">
+        Ducati
+      </label>
+    </span>
+    <span
+      className="wrapper">
+      <input
+        checked={false}
+        className="native"
+        defaultValue={undefined}
+        disabled={undefined}
+        id="_teatime2"
+        name="checkGroup-control"
+        onChange={[Function]}
+        type="checkbox"
+        value="honda" />
+      <label
+        className="control"
+        htmlFor="_teatime2" />
+      <label
+        className="label"
+        htmlFor="_teatime2">
+        Honda
+      </label>
+    </span>
+    <span
+      className="wrapper">
+      <input
+        checked={false}
+        className="native"
+        defaultValue={undefined}
+        disabled={undefined}
+        id="_teatime3"
+        name="checkGroup-control"
+        onChange={[Function]}
+        type="checkbox"
+        value="jawa" />
+      <label
+        className="control"
+        htmlFor="_teatime3" />
+      <label
+        className="label"
+        htmlFor="_teatime3">
+        Jawa
+      </label>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`test Radio 1`] = `
 <div
   className="container"
@@ -68,17 +142,17 @@ exports[`test Radio 1`] = `
       className="native"
       defaultValue={undefined}
       disabled={undefined}
-      id="_teatime2"
+      id="_teatime5"
       name="radio-control"
       onChange={[Function]}
       type="radio"
       value="ducati" />
     <label
       className="control"
-      htmlFor="_teatime2" />
+      htmlFor="_teatime5" />
     <label
       className="label"
-      htmlFor="_teatime2">
+      htmlFor="_teatime5">
       Ducati
     </label>
   </span>
@@ -89,17 +163,17 @@ exports[`test Radio 1`] = `
       className="native"
       defaultValue={undefined}
       disabled={undefined}
-      id="_teatime3"
+      id="_teatime6"
       name="radio-control"
       onChange={[Function]}
       type="radio"
       value="honda" />
     <label
       className="control"
-      htmlFor="_teatime3" />
+      htmlFor="_teatime6" />
     <label
       className="label"
-      htmlFor="_teatime3">
+      htmlFor="_teatime6">
       Honda
     </label>
   </span>
@@ -110,17 +184,17 @@ exports[`test Radio 1`] = `
       className="native"
       defaultValue={undefined}
       disabled={undefined}
-      id="_teatime4"
+      id="_teatime7"
       name="radio-control"
       onChange={[Function]}
       type="radio"
       value="jawa" />
     <label
       className="control"
-      htmlFor="_teatime4" />
+      htmlFor="_teatime7" />
     <label
       className="label"
-      htmlFor="_teatime4">
+      htmlFor="_teatime7">
       Jawa
     </label>
   </span>
@@ -139,14 +213,14 @@ exports[`test RadioButton 1`] = `
       className="native"
       defaultValue={undefined}
       disabled={undefined}
-      id="_teatime6"
+      id="_teatime9"
       name="radio-control"
       onChange={[Function]}
       type="radio"
       value="ducati" />
     <label
       className="control"
-      htmlFor="_teatime6">
+      htmlFor="_teatime9">
       Ducati
     </label>
   </span>
@@ -157,14 +231,14 @@ exports[`test RadioButton 1`] = `
       className="native"
       defaultValue={undefined}
       disabled={undefined}
-      id="_teatime7"
+      id="_teatime10"
       name="radio-control"
       onChange={[Function]}
       type="radio"
       value="honda" />
     <label
       className="control"
-      htmlFor="_teatime7">
+      htmlFor="_teatime10">
       Honda
     </label>
   </span>
@@ -175,14 +249,14 @@ exports[`test RadioButton 1`] = `
       className="native"
       defaultValue={undefined}
       disabled={undefined}
-      id="_teatime8"
+      id="_teatime11"
       name="radio-control"
       onChange={[Function]}
       type="radio"
       value="jawa" />
     <label
       className="control"
-      htmlFor="_teatime8">
+      htmlFor="_teatime11">
       Jawa
     </label>
   </span>
@@ -249,5 +323,44 @@ exports[`test SelectSearchable 1`] = `
   </span>
   <div
     className="menu isClosedMenu" />
+</span>
+`;
+
+exports[`test Tumbler 1`] = `
+<span
+  className="wrapper"
+  onChange={undefined}>
+  <span
+    className="baseline">
+    <div
+      className="shape">
+      <input
+        checked={undefined}
+        className="native"
+        defaultChecked={undefined}
+        disabled={undefined}
+        id="_teatime12"
+        name="tumbler-control"
+        onChange={[Function]}
+        type="checkbox"
+        value={undefined} />
+      <label
+        className="control"
+        htmlFor="_teatime12">
+        <span
+          className="label">
+          On
+        </span>
+        <span
+          className="label">
+          Off
+        </span>
+        <span
+          className="delimiter">
+           
+        </span>
+      </label>
+    </div>
+  </span>
 </span>
 `;

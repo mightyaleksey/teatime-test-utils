@@ -7,7 +7,7 @@
     "node": ">=6.3"
   },
   "scripts": {
-    "lint": "eslint {pageObject,test*,tool}/**/*.js *.js",
+    "lint": "eslint {lib,pageObject,test*}/**/*.js *.js",
     "test": "jest"
   },
   "repository": {
@@ -35,10 +35,10 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "enzyme": "^2.7.0",
+    "eslint-plugin-react": "^6.9.0",
     "glob": "^7.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^18.1.0",
-    "jsdom": "^9.9.1",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
