@@ -34,11 +34,13 @@
   "devDependencies": {
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
+    "enzyme": "^2.7.0",
     "glob": "^7.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^18.1.0",
     "jsdom": "^9.9.1",
     "react": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-test-renderer": "^15.4.2",
     "teatime-components": "^0.8.5"
