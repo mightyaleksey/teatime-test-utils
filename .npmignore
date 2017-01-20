@@ -1,9 +1,8 @@
+__*
 .babelrc
 .editorconfig
 .eslintrc.json
 .gitignore
 .npmignore
 .travis.yml
-cmrh.conf.js
-env
 test*
