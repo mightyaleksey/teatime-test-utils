@@ -3,8 +3,9 @@
 const {identify} = require('./lib/identify');
 const {isFunction, propertyOf} = require('lodash/fp');
 const {getAttribute} = require('./lib/bro');
+const {selector: mapClassNameToSelector} = require('./lib/className');
 
-const getClassName = selector => getAttribute(selector, 'class');
+const getClassName = selector => mapClassNameToSelector(getAttribute(selector, 'class'));
 
 const {
   isCheck,
