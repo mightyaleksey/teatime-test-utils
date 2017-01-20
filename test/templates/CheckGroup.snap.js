@@ -10,6 +10,3 @@ export default () => (
       {label: 'Jawa', value: 'jawa'},
     ]}/>
 );
-
-
-
