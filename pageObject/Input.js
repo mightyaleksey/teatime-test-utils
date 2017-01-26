@@ -1,4 +1,17 @@
 'use strict';
 
-const {getSelectors} = require('../tool/selector');
-module.exports = getSelectors('teatime-components/style/input/input.css');
+const {
+  clear,
+  control,
+  selector,
+  wrapper,
+} = require('teatime-components/style/input/input.css');
+
+const {mapValuesToSelectors} = require('../lib/className');
+
+module.exports = mapValuesToSelectors({
+  clear,
+  control,
+  selector,
+  wrapper,
+});

@@ -37,10 +37,10 @@ In order to make more complex interactions like setting the `input`s value or ch
 ### example of setting inputs value
 
 ```javascript
-const { getValue, setValue } = require('teatime-test-utils');
+const {getValue, setValue} = require('teatime-test-utils');
 
 it('should set input value', () => {
-  setValue('[name="username"]', 'Alexey');
+  setValue()('[name="username"]', 'Alexey');
   // assert it was setted
 });
 ```

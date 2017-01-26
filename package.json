@@ -7,11 +7,8 @@
     "node": ">=6.3"
   },
   "scripts": {
-    "docker:build": "docker build -t $npm_package_name:$npm_package_version env",
-    "docker:run": "docker run --interactive --rm --tty --volume $(pwd):/var/www/test $npm_package_name:$npm_package_version",
-    "lint": "eslint {pageObject,test*,tool}/**/*.js *.js",
-    "test": "npm run test:unit",
-    "test:unit": "tape --require ./test/setup test/*/*.js"
+    "lint": "eslint {lib,pageObject,test*}/**/*.js *.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,19 +20,36 @@
     "url": "https://github.com/sullenor/teatime-test-utils/issues"
   },
   "homepage": "https://github.com/sullenor/teatime-test-utils#readme",
+  "babel": {
+    "presets": [
+      "latest",
+      "react"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    }
+  },
   "devDependencies": {
-    "static-server": "^2.0.3",
-    "tape": "^4.6.2",
-    "teatime-components": "^0.8.5",
-    "wdio-mocha-framework": "^0.5.8",
-    "wdio-spec-reporter": "^0.0.5",
-    "webdriverio": "^4.2.16"
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-preset-react": "^6.16.0",
+    "enzyme": "^2.7.0",
+    "eslint": "^3.13.1",
+    "eslint-plugin-react": "^6.9.0",
+    "glob": "^7.1.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^18.1.0",
+    "react": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
+    "teatime-components": "^0.8.7"
   },
   "dependencies": {
-    "babel-preset-power-assert": "^1.0.0",
-    "babel-register": "^6.16.3",
+    "babel-register": "^6.22.0",
     "css-modules-require-hook": "^4.0.5",
-    "lodash": "^4.16.4",
-    "power-assert": "^1.4.1"
+    "lodash": "^4.17.4"
   }
 }

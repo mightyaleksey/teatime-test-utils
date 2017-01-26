@@ -1,6 +1,6 @@
 'use strict';
 
-const { sep } = require('path');
+const {sep} = require('path');
 
 const isNodeModule = new RegExp(`${sep}node_modules${sep}`);
 const isTestUtil = new RegExp(`teatime-test-utils${sep}tool`);

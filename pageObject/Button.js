@@ -1,8 +1,17 @@
 'use strict';
 
-const {getSelectors} = require('../tool/selector');
-const {selector} = getSelectors('teatime-components/style/button/button.css');
+const {
+  action,
+  control,
+  normal,
+  selector,
+} = require('teatime-components/style/button/button.css');
 
-exports.action = selector;
-exports.link = selector;
-exports.normal = selector;
+const {mapValuesToSelectors} = require('../lib/className');
+
+module.exports = mapValuesToSelectors({
+  action,
+  control,
+  normal,
+  selector,
+});

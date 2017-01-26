@@ -1,6 +1,17 @@
 'use strict';
 
+const {
+  container,
+  column,
+  wrapper,
+} = require('teatime-components/style/checkGroup/checkGroup.css');
+
 const {assign} = require('lodash/fp');
-const {getSelectors} = require('../tool/selector');
+const {mapValuesToSelectors} = require('../lib/className');
 const Check = require('./Check');
-module.exports = assign(getSelectors('teatime-components/style/checkGroup/checkGroup.css'), Check);
+
+module.exports = assign(Check, mapValuesToSelectors({
+  container,
+  column,
+  wrapper,
+}));

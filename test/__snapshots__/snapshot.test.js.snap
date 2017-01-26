@@ -1,0 +1,372 @@
+exports[`test ButtonThemeAction 1`] = `
+<button
+  autoFocus={undefined}
+  className="control"
+  disabled={undefined}
+  id={undefined}
+  role="button"
+  type={undefined}>
+  Action
+</button>
+`;
+
+exports[`test ButtonThemeLink 1`] = `
+<button
+  autoFocus={undefined}
+  className="control"
+  disabled={undefined}
+  id={undefined}
+  role="link"
+  type={undefined}>
+  Action
+</button>
+`;
+
+exports[`test ButtonThemeNormal 1`] = `
+<button
+  autoFocus={undefined}
+  className="control"
+  disabled={undefined}
+  id={undefined}
+  role="button"
+  type={undefined}>
+  Normal
+</button>
+`;
+
+exports[`test Check 1`] = `
+<span
+  className="wrapper"
+  onChange={undefined}>
+  <input
+    checked={undefined}
+    className="native"
+    defaultChecked={undefined}
+    disabled={undefined}
+    id="checks-id"
+    name="check-control"
+    onChange={[Function]}
+    type="checkbox"
+    value={undefined} />
+  <label
+    className="control"
+    htmlFor="checks-id" />
+  <label
+    className="label"
+    htmlFor="checks-id">
+    checks label
+  </label>
+</span>
+`;
+
+exports[`test CheckGroup 1`] = `
+<div
+  className="container"
+  id={undefined}
+  onChange={undefined}>
+  <div
+    className="column">
+    <span
+      className="wrapper">
+      <input
+        checked={false}
+        className="native"
+        defaultValue={undefined}
+        disabled={undefined}
+        id="_teatime1"
+        name="checkGroup-control"
+        onChange={[Function]}
+        type="checkbox"
+        value="ducati" />
+      <label
+        className="control"
+        htmlFor="_teatime1" />
+      <label
+        className="label"
+        htmlFor="_teatime1">
+        Ducati
+      </label>
+    </span>
+    <span
+      className="wrapper">
+      <input
+        checked={false}
+        className="native"
+        defaultValue={undefined}
+        disabled={undefined}
+        id="_teatime2"
+        name="checkGroup-control"
+        onChange={[Function]}
+        type="checkbox"
+        value="honda" />
+      <label
+        className="control"
+        htmlFor="_teatime2" />
+      <label
+        className="label"
+        htmlFor="_teatime2">
+        Honda
+      </label>
+    </span>
+    <span
+      className="wrapper">
+      <input
+        checked={false}
+        className="native"
+        defaultValue={undefined}
+        disabled={undefined}
+        id="_teatime3"
+        name="checkGroup-control"
+        onChange={[Function]}
+        type="checkbox"
+        value="jawa" />
+      <label
+        className="control"
+        htmlFor="_teatime3" />
+      <label
+        className="label"
+        htmlFor="_teatime3">
+        Jawa
+      </label>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`test Radio 1`] = `
+<div
+  className="container"
+  id={undefined}
+  onChange={undefined}>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime5"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="ducati" />
+    <label
+      className="control"
+      htmlFor="_teatime5" />
+    <label
+      className="label"
+      htmlFor="_teatime5">
+      Ducati
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime6"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="honda" />
+    <label
+      className="control"
+      htmlFor="_teatime6" />
+    <label
+      className="label"
+      htmlFor="_teatime6">
+      Honda
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime7"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="jawa" />
+    <label
+      className="control"
+      htmlFor="_teatime7" />
+    <label
+      className="label"
+      htmlFor="_teatime7">
+      Jawa
+    </label>
+  </span>
+</div>
+`;
+
+exports[`test RadioButton 1`] = `
+<div
+  className="container"
+  id={undefined}
+  onChange={undefined}>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime9"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="ducati" />
+    <label
+      className="control"
+      htmlFor="_teatime9">
+      Ducati
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime10"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="honda" />
+    <label
+      className="control"
+      htmlFor="_teatime10">
+      Honda
+    </label>
+  </span>
+  <span
+    className="wrapper">
+    <input
+      checked={false}
+      className="native"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="_teatime11"
+      name="radio-control"
+      onChange={[Function]}
+      type="radio"
+      value="jawa" />
+    <label
+      className="control"
+      htmlFor="_teatime11">
+      Jawa
+    </label>
+  </span>
+</div>
+`;
+
+exports[`test Select 1`] = `
+<span
+  className="wrapper"
+  onChange={undefined}>
+  <input
+    disabled={undefined}
+    id={undefined}
+    name="select-control"
+    type="hidden"
+    value="jawa" />
+  <span
+    className="baseline">
+    <button
+      className="control"
+      disabled={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}>
+      Jawa
+    </button>
+    <i
+      className="arrow"
+      onClick={[Function]} />
+  </span>
+  <div
+    className="menu isClosedMenu"
+    role="listbox" />
+</span>
+`;
+
+exports[`test SelectSearchable 1`] = `
+<span
+  className="wrapper"
+  onChange={undefined}>
+  <input
+    disabled={undefined}
+    id={undefined}
+    name="select-control"
+    type="hidden"
+    value="jawa" />
+  <span
+    className="baseline">
+    <input
+      className="search isPseudoFocusedSearch"
+      disabled={undefined}
+      onChange={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="combobox"
+      value="" />
+    <span
+      className="control"
+      disabled={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}>
+      Jawa
+    </span>
+    <i
+      className="arrow"
+      onClick={[Function]} />
+  </span>
+  <div
+    className="menu isClosedMenu"
+    role="listbox" />
+</span>
+`;
+
+exports[`test Tumbler 1`] = `
+<span
+  className="wrapper"
+  onChange={undefined}>
+  <span
+    className="baseline">
+    <div
+      className="shape">
+      <input
+        checked={undefined}
+        className="native"
+        defaultChecked={undefined}
+        disabled={undefined}
+        id="_teatime12"
+        name="tumbler-control"
+        onChange={[Function]}
+        type="checkbox"
+        value={undefined} />
+      <label
+        className="control"
+        htmlFor="_teatime12">
+        <span
+          className="label">
+          On
+        </span>
+        <span
+          className="label">
+          Off
+        </span>
+        <span
+          className="delimiter">
+           
+        </span>
+      </label>
+    </div>
+  </span>
+</span>
+`;
