@@ -1,6 +1,17 @@
 'use strict';
 
-const {selector} = require('teatime-components/style/button/button.css');
-const {selector: mapClassNameToSelector} = require('../lib/className');
+const {
+  action,
+  control,
+  normal,
+  selector,
+} = require('teatime-components/style/button/button.css');
 
-module.exports = mapClassNameToSelector(selector);
+const {mapValuesToSelectors} = require('../lib/className');
+
+module.exports = mapValuesToSelectors({
+  action,
+  control,
+  normal,
+  selector,
+});

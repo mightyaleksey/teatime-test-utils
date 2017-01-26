@@ -27,6 +27,7 @@ const {
   setInputValue,
   setRadioValue,
   setSelectValue,
+  setTumblerValue,
 } = require('./lib/setter');
 
 const identities = {
@@ -53,7 +54,7 @@ const setters = {
   Input: setInputValue,
   Radio: setRadioValue,
   Select: setSelectValue,
-  Tumbler: setCheckValue,
+  Tumbler: setTumblerValue,
 };
 
 const getValue = (mapOfGetters = getters, mapOfIdentities = identities) => {
