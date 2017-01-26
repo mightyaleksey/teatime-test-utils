@@ -20,6 +20,7 @@ const {
   getCheckValue,
   getCheckGroupValue,
   getInputValue,
+  getRadioValue,
 } = require('./lib/getter');
 const {
   setCheckValue,
@@ -43,7 +44,7 @@ const getters = {
   Check: getCheckValue,
   CheckGroup: getCheckGroupValue,
   Input: getInputValue,
-  Radio: getCheckValue,
+  Radio: getRadioValue,
   Select: getInputValue,
   Tumbler: getCheckValue,
 };
