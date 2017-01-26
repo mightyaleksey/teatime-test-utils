@@ -4,6 +4,7 @@ exports[`test ButtonThemeAction 1`] = `
   className="control"
   disabled={undefined}
   id={undefined}
+  role="button"
   type={undefined}>
   Action
 </button>
@@ -15,6 +16,7 @@ exports[`test ButtonThemeLink 1`] = `
   className="control"
   disabled={undefined}
   id={undefined}
+  role="link"
   type={undefined}>
   Action
 </button>
@@ -26,6 +28,7 @@ exports[`test ButtonThemeNormal 1`] = `
   className="control"
   disabled={undefined}
   id={undefined}
+  role="button"
   type={undefined}>
   Normal
 </button>
@@ -287,7 +290,8 @@ exports[`test Select 1`] = `
       onClick={[Function]} />
   </span>
   <div
-    className="menu isClosedMenu" />
+    className="menu isClosedMenu"
+    role="listbox" />
 </span>
 `;
 
@@ -309,6 +313,7 @@ exports[`test SelectSearchable 1`] = `
       onChange={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="combobox"
       value="" />
     <span
       className="control"
@@ -322,7 +327,8 @@ exports[`test SelectSearchable 1`] = `
       onClick={[Function]} />
   </span>
   <div
-    className="menu isClosedMenu" />
+    className="menu isClosedMenu"
+    role="listbox" />
 </span>
 `;
 
