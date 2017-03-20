@@ -45,7 +45,9 @@ exports[`test Check 1`] = `
     disabled={undefined}
     id="checks-id"
     name="check-control"
+    onBlur={undefined}
     onChange={[Function]}
+    onFocus={undefined}
     type="checkbox"
     value={undefined} />
   <label
@@ -281,7 +283,9 @@ exports[`test Select 1`] = `
     <button
       className="control"
       disabled={undefined}
+      onBlur={undefined}
       onClick={[Function]}
+      onFocus={undefined}
       onKeyDown={[Function]}>
       Jawa
     </button>
@@ -289,7 +293,7 @@ exports[`test Select 1`] = `
       className="arrow"
       onClick={[Function]} />
   </span>
-  <div
+  <span
     className="menu isClosedMenu"
     role="listbox" />
 </span>
@@ -310,15 +314,19 @@ exports[`test SelectSearchable 1`] = `
     <input
       className="search isPseudoFocusedSearch"
       disabled={undefined}
+      onBlur={undefined}
       onChange={[Function]}
       onClick={[Function]}
+      onFocus={undefined}
       onKeyDown={[Function]}
       role="combobox"
       value="" />
     <span
       className="control"
       disabled={undefined}
+      onBlur={null}
       onClick={[Function]}
+      onFocus={null}
       onKeyDown={[Function]}>
       Jawa
     </span>
@@ -326,7 +334,7 @@ exports[`test SelectSearchable 1`] = `
       className="arrow"
       onClick={[Function]} />
   </span>
-  <div
+  <span
     className="menu isClosedMenu"
     role="listbox" />
 </span>
@@ -347,7 +355,9 @@ exports[`test Tumbler 1`] = `
         disabled={undefined}
         id="_teatime12"
         name="tumbler-control"
+        onBlur={undefined}
         onChange={[Function]}
+        onFocus={undefined}
         type="checkbox"
         value={undefined} />
       <label
