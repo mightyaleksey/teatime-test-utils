@@ -5,7 +5,7 @@ exports[`test ButtonThemeAction 1`] = `
   disabled={undefined}
   id={undefined}
   role="button"
-  type={undefined}>
+  type="button">
   Action
 </button>
 `;
@@ -17,7 +17,7 @@ exports[`test ButtonThemeLink 1`] = `
   disabled={undefined}
   id={undefined}
   role="link"
-  type={undefined}>
+  type="button">
   Action
 </button>
 `;
@@ -29,7 +29,7 @@ exports[`test ButtonThemeNormal 1`] = `
   disabled={undefined}
   id={undefined}
   role="button"
-  type={undefined}>
+  type="button">
   Normal
 </button>
 `;
@@ -294,7 +294,7 @@ exports[`test Select 1`] = `
       onClick={[Function]} />
   </span>
   <span
-    className="menu isClosedMenu"
+    className="menu bottom menu isClosedMenu"
     role="listbox" />
 </span>
 `;
@@ -335,7 +335,7 @@ exports[`test SelectSearchable 1`] = `
       onClick={[Function]} />
   </span>
   <span
-    className="menu isClosedMenu"
+    className="menu bottom menu isClosedMenu"
     role="listbox" />
 </span>
 `;
